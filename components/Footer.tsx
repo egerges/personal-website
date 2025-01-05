@@ -139,7 +139,7 @@ export const Footer: React.FC = () => {
           <p className="mt-2">
             By using this website, you agree to the{" "}
             <Link
-              href="/privacy-policy"
+              href="/privacy"
               className="underline hover:text-blue-500"
               aria-label="Navigate to Privacy Policy"
             >
@@ -147,11 +147,11 @@ export const Footer: React.FC = () => {
             </Link>{" "}
             and{" "}
             <Link
-              href="/terms-of-service"
+              href="/terms"
               className="underline hover:text-blue-500"
               aria-label="Navigate to Terms of Service"
             >
-              Terms of Service
+              Terms and Conditions
             </Link>
             .
           </p>
