@@ -83,9 +83,9 @@ export function ContactForm() {
           Phone Number
         </label>
         <input
-          type="email"
-          id="email"
-          name="email"
+          type="phone"
+          id="phone"
+          name="phone"
           value={formData.phone}
           onChange={handleInputChange}
           required

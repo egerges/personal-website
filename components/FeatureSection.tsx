@@ -21,26 +21,26 @@ interface projects {
 const projects: projects[] = [
   {
     type: "large",
-    title: "Next.js Role-Based Access App",
+    title: "E-Commerce Application with Store Management and eShop",
     content:
-      "Designed a role-based access control platform using Next.js and Tailwind CSS, improving user efficiency by 40%.",
+      "Built a web and mobile e-commerce platform with robust store management tools, enabling businesses to manage inventory, track orders, and enhance customer engagement seamlessly.",
     image: "/ecommerce.png",
     cta: "Learn More",
   },
   {
     type: "small",
-    title: "E-Commerce Web Application",
+    title: "AI-Based Liveness Detection System",
     content:
-      "Created a responsive, high-performance e-commerce app with React and Tailwind CSS, increasing sales by 25%.",
-    image: "/ecommerce.png",
+      "Developed an AI-powered liveness detection solution to enhance security by verifying user authenticity and reducing fraudulent activities in identity verification processes.",
+    image: "",
     cta: "Explore",
   },
   {
     type: "largeWithNoise",
-    title: "AI-Powered Identity Verification",
+    title: "UChange Community Platform",
     content:
-      "Developed an AI-powered identity verification system using AWS Rekognition and GoLang.",
-    image: "/ecommerce.png",
+      "Co-founded UChange, a student-driven initiative focused on solving campus challenges through innovation, design thinking, and community collaboration, fostering a culture of empowerment and impact.",
+    image: "/uchange.png",
     cta: "See Project",
   },
 ];

@@ -16,11 +16,11 @@ export const LargeWobbleCardWithNoise: React.FC<{
             {title}
         </h2>
         <p className="text-left text-lg text-neutral-200 max-w-lg">{content}</p>
-        {cta && (
+        {/* {cta && (
             <button className="px-4 py-2 bg-gradient-to-r from-indigo-500 to-blue-500 text-white rounded-lg hover:scale-105 transition-transform">
             {cta}
             </button>
-        )}
+        )} */}
       </div>
       <Image
         src={image}

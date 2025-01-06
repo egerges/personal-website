@@ -13,11 +13,11 @@ export const SmallWobbleCard: React.FC<{
         {title}
       </h2>
       <p className="text-left text-base text-neutral-200 max-w-md">{content}</p>
-      {cta && (
+      {/* {cta && (
         <button className="px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-lg hover:scale-105 transition-transform">
           {cta}
         </button>
-      )}
+      )} */}
     </div>
   );
 };
