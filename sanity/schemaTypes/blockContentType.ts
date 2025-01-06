@@ -1,6 +1,5 @@
 import {defineType, defineArrayMember} from 'sanity';
 import {ImageIcon} from '@sanity/icons';
-import { CodeInput } from '@sanity/code-input';
 
 /**
  * This is the schema type for block content used in the post document type
@@ -77,7 +76,6 @@ export const blockContentType = defineType({
       type: 'code',
       name: 'code',
       title: 'Code',
-      components: { input: CodeInput },
       options: {
         theme: 'github', // Change theme as needed (e.g., 'monokai', 'github')
         languageAlternatives: [
