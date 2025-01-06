@@ -35,6 +35,7 @@ export default function BlogPostPage() {
         }`;
         const data = await client.fetch(query, { slug });
         setPost(data);
+        console.log("Post Query Result:", data);
       } catch (error) {
         console.error("Failed to fetch post:", error);
       } finally {
@@ -93,10 +94,10 @@ export default function BlogPostPage() {
       </div>
 
       {/* Related Posts */}
-      {/* <section className="mt-12">
+      <section className="mt-12">
         <h2 className="text-2xl font-semibold text-gray-800 mb-4">Related Posts</h2>
-        <RelatedPosts currentTags={post.categories.map((cat) => cat.)} />
-      </section> */}
+        <RelatedPosts currentTags={post.categories || []} currentPostId={post._id} />
+      </section>
     </article>
   );
 }

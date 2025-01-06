@@ -11,7 +11,7 @@ const Button: React.FC<ButtonProps> = ({ text, onClick, variant = "primary" }) =
   const buttonStyles = cn(
     "px-6 py-3 rounded-lg font-medium text-lg transition-transform transform hover:scale-105 focus:ring-2 focus:ring-offset-2",
     variant === "primary"
-      ? "bg-gradient-to-r from-[var(--color-pink-primary)] to-[var(--color-pink-dark)] text-[var(--gray-light)] hover:from-[var(--color-pink-light)] hover:to-[var(--color-pink-primary)] focus:ring-[var(--color-pink-light)]"
+      ? "px-4 py-2 bg-gradient-to-r from-blue-500 to-pink-500 text-white rounded-lg shadow-lg hover:shadow-xl transition"
       : "bg-gradient-to-r from-[var(--color-blue-primary)] to-[var(--color-blue-dark)] text-[var(--gray-light)] hover:from-[var(--color-blue-light)] hover:to-[var(--color-blue-primary)] focus:ring-[var(--color-blue-light)]"
   );
 

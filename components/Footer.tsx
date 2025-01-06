@@ -6,11 +6,17 @@ import { motion } from "framer-motion";
 import {
   EnvelopeIcon,
   MapPinIcon,
-  AcademicCapIcon,
+  GlobeAltIcon,
+  BuildingOfficeIcon
 } from "@heroicons/react/24/solid";
 
 export const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
+
+  const links = [
+    { href: "/projects", label: "Projects" },
+    { href: "/blog", label: "Blog" },
+  ];
 
   return (
     <footer
@@ -42,14 +48,14 @@ export const Footer: React.FC = () => {
               Navigation
             </h3>
             <ul className="space-y-2">
-              {["Home", "About", "Projects", "Skills", "Contact"].map((link) => (
-                <li key={link}>
+              {links.map((link) => (
+                <li key={link.href + link.label}>
                   <Link
-                    href={`/${link.toLowerCase()}`}
+                    href={`/${link.href}`}
                     className="hover:text-blue-500 transition"
                     aria-label={`Navigate to ${link} page`}
                   >
-                    {link}
+                    {link.label}
                   </Link>
                 </li>
               ))}
@@ -63,16 +69,16 @@ export const Footer: React.FC = () => {
               <li className="flex items-center gap-2">
                 <EnvelopeIcon className="w-5 h-5 text-blue-500" />
                 <a
-                  href="mailto:your-email@example.com"
+                  href="mailto:info@eliogerges.com"
                   className="hover:text-blue-500 transition"
                   aria-label="Email Elio Gerges"
                 >
-                  your-email@example.com
+                  info@eliogerges.com
                 </a>
               </li>
               <li className="flex items-center gap-2">
                 <MapPinIcon className="w-5 h-5 text-blue-500" />
-                <p aria-label="Location information">Maple, Ontario, Canada</p>
+                <p aria-label="Location information">Los Angeles, California, USA</p>
               </li>
             </ul>
           </div>
@@ -83,14 +89,14 @@ export const Footer: React.FC = () => {
             <div className="flex space-x-4">
               {[
                 {
-                  href: "https://www.linkedin.com/in/your-profile",
+                  href: "https://www.linkedin.com/in/elio-gerges",
                   label: "LinkedIn",
-                  icon: <AcademicCapIcon className="w-6 h-6" />,
+                  icon: <GlobeAltIcon className="w-6 h-6" />,
                 },
                 {
-                  href: "https://github.com/your-profile",
+                  href: "https://github.com/egerges",
                   label: "GitHub",
-                  icon: <AcademicCapIcon className="w-6 h-6" />,
+                  icon: <BuildingOfficeIcon className="w-6 h-6" />,
                 },
               ].map((social, idx) => (
                 <motion.a
