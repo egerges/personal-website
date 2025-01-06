@@ -8,7 +8,7 @@ export async function POST(req: Request) {
     const { name, email, phone, subject, message } = await req.json();
 
     // Determine environment
-    const isDev = process.env.NODE_ENV !== "production";
+    const isDev = process.env.NODE_ENV == "development";
     const logoUrl = isDev
       ? "http://localhost:3000/hero.png"
       : "https://eliogerges.com/hero.png";
