@@ -22,9 +22,6 @@ export default function RootLayout({
       <body
         className="antialiased w-[100vw] min-h-[100%]"
       >
-        <ErrorBoundary
-          FallbackComponent={ErrorFallback}
-        >
           <Navbar />
           <div
             className="min-h-[50rem] w-full max-w-[100vw] overflow-x-hidden dark:bg-black bg-white  dark:bg-dot-white/[0.2] bg-dot-black/[0.2] relative flex items-center justify-center"
@@ -32,10 +29,13 @@ export default function RootLayout({
             {/* <div
               className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"
             ></div> */}
-            {children}
+            <ErrorBoundary
+              FallbackComponent={ErrorFallback}
+            >
+              {children}
+            </ErrorBoundary>
           </div>
           <Footer />
-        </ErrorBoundary>
       </body>
     </html>
   );
