@@ -9,7 +9,11 @@ const {
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./app/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}"],
+  content: [
+    './app/**/*.{js,ts,jsx,tsx}', // Include all App Router files
+    './components/**/*.{js,ts,jsx,tsx}', // Include your components
+    './pages/**/*.{js,ts,jsx,tsx}', // Include Pages Router files
+  ],
   darkMode: "class",
   theme: {
     extend: {
