@@ -39,3 +39,5 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+sendgrid.env
+twilio_2FA_recovery_code.txt
