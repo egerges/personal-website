@@ -15,7 +15,7 @@ export const ErrorFallback: React.FC<ErrorFallbackProps> = ({
 }) => {
   return (
     <section
-      className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-gray-300 to-gray-100 text-gray-800"
+      className="flex flex-col items-center justify-center min-h-screen text-gray-800"
       aria-labelledby="error-heading"
     >
       <motion.h1
