@@ -1,11 +1,14 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+
 import { client } from "@/sanity/lib/client";
 import { BlogCard } from "@components/blog/BlogCard";
 import { FeaturedPost } from "@components/blog/FeaturedPost";
 import { BlogSearchBar } from "@components/blog/BlogSearchBar";
 import { GoogleAd } from "@components/blog/GoogleAd";
+import { TextGeneratedEffect } from "@components/TextGeneratedEffect";
 
 export default function BlogPage() {
   const [posts, setPosts] = useState<any[]>([]);
@@ -74,35 +77,50 @@ export default function BlogPage() {
   return (
     <section className="min-h-screen mt-16">
       {/* Header Section */}
-      <div className="py-10 text-center">
-        <h1 className="text-4xl font-extrabold text-gray-900">Insights and Stories</h1>
-        <p className="mt-2 text-lg text-gray-600">
+      <motion.section
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="py-10 text-center"
+        >
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-[var(--blue-primary)] to-[var(--pink-primary)]">
+            <TextGeneratedEffect words="Insights and Stories..."/>
+          </h1>
+          <p className="mt-4 text-base sm:text-lg lg:text-xl text-[var(--color-gray-darker)]">
           Exploring technology, design, and innovation one post at a time.
-        </p>
-        <BlogSearchBar />
-      </div>
+          </p>
+          <BlogSearchBar />
+      </motion.section>
 
       {/* Featured Posts */}
-      <div className="my-10 px-4 max-w-7xl mx-auto">
+      <motion.section
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="my-10 px-4 max-w-7xl mx-auto">
         <h2 className="text-2xl font-semibold text-gray-800 mb-6">Featured Posts</h2>
         <div className="grid gap-6 md:grid-cols-2">
           {featuredPosts.map((post) => (
             <FeaturedPost key={post._id} post={post} />
           ))}
         </div>
-      </div>
+      </motion.section>
 
       {/* Google Ad */}
       <GoogleAd adSlot="header-ad-slot" />
 
       {/* All Posts */}
-      <div className="my-10 px-4 max-w-7xl mx-auto">
+      <motion.section
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+           className="my-10 px-4 max-w-7xl mx-auto">
         <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {posts.map((post) => (
             <BlogCard key={post._id} post={post} />
           ))}
         </div>
-      </div>
+      </motion.section>
 
       {/* Google Ad */}
       <GoogleAd adSlot="footer-ad-slot" />

@@ -57,8 +57,8 @@ const Hero: React.FC = () => {
 
           {/* Buttons */}
           <div className="flex justify-center gap-4 mt-6">
-            <Button text="Begin the Journey" variant="primary" />
-            <Button text="See My Work" variant="secondary" />
+            <Button text="Get in Touch" variant="secondary" />
+            <Button text="See My Work" variant="primary" />
           </div>
         </motion.div>
         <motion.div
