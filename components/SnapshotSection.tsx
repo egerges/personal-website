@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, useScroll } from "framer-motion";
-import { AcademicCapIcon, BriefcaseIcon, CodeBracketIcon, RocketLaunchIcon } from "@heroicons/react/24/solid";
+import { AcademicCapIcon, BriefcaseIcon, RocketLaunchIcon, SparklesIcon } from "@heroicons/react/24/solid";
 
 import { TextGeneratedEffect } from "@components/TextGeneratedEffect";
 import Button from "@components/Button";
@@ -18,60 +18,104 @@ interface Milestone {
 
 const milestones: Milestone[] = [
   {
+    year: "2023-Present",
+    title: "Full-Stack Developer at Proof of ID",
+    description: "Delivered SaaS solutions focusing on efficient KYC processes and identity verification.",
+    details:
+      "Optimized applications, reducing render times by 30%, while building scalable software.",
+    achievements: ["Reduced render times by 30%.", "Built scalable KYC software solutions."],
+    icon: <BriefcaseIcon className="h-10 w-10 text-green-500" />,
+  },
+  {
+    year: "2023",
+    title: "Completed Postgraduate Certificate in Web Design and Development",
+    description: "Humber College, Toronto",
+    details:
+      "Strengthened skills in web design and multimedia, focusing on front-end and responsive development techniques.",
+    achievements: [
+      "Learned advanced responsive development techniques.",
+      "Specialized in multimedia design.",
+    ],
+    icon: <AcademicCapIcon className="h-10 w-10 text-blue-500" />,
+  },
+  {
+    year: "2022",
+    title: "University Innovation Fellow at Stanford University",
+    description: "Fostered innovation and entrepreneurship.",
+    details:
+      "Participated in the Stanford UIF program. Organized workshops and developed interdisciplinary projects impacting the university ecosystem.",
+    achievements: [
+      "Organized workshops on innovation.",
+      "Developed impactful interdisciplinary projects.",
+    ],
+    icon: <SparklesIcon className="h-10 w-10 text-purple-500" />,
+  },
+  {
+    year: "2021-2023",
+    title: "Frontend Developer at BitsProof",
+    description: "Enhanced user interface designs and optimized task completion speeds.",
+    details:
+      "Collaborated with cross-functional teams to improve UI and enhance productivity.",
+    achievements: ["Improved UI designs.", "Optimized task completion speeds by 20%."],
+    icon: <BriefcaseIcon className="h-10 w-10 text-yellow-500" />,
+  },
+  {
     year: "2021",
     title: "Graduated from Saint Joseph University",
     description: "Earned a BA in Computer Science with a Minor in Business.",
     details:
-      "Graduated with honors, gaining a strong foundation in programming, algorithms, and business principles.",
+      "Graduated with a strong foundation in programming, algorithms, and business principles. Actively engaged in student initiatives and innovation programs.",
     achievements: [
-      "Dean's List for 3 consecutive years",
-      "Recipient of the Computer Science Excellence Award",
-      "Led the university's coding club to victory in a national hackathon",
-      "Interned at a local tech startup, developing a web application for real-time collaboration",
+      "Actively participated in student initiatives and innovation programs.",
     ],
     icon: <AcademicCapIcon className="h-10 w-10 text-pink-500" />,
   },
   {
-    year: "2022",
-    title: "Transitioned into the Financial Sector",
-    description: "Personal Banking Associate at TD Canada Trust.",
+    year: "2020",
+    title: "Full-Stack Developer at CMA CGM",
+    description: "Developed a Virtual Business Card management system for HR.",
     details:
-      "Developed excellent organizational and client-facing skills, managing a high volume of tasks.",
+      "Automated workflows and created a seamless interface for employees.",
     achievements: [
-      "Top performer in the region for customer satisfaction",
-      "Led a team of 5 associates in a successful client retention initiative",
-      "Completed the Canadian Securities Course (CSC) with honors",
-      "Developed a financial literacy workshop for local schools",
+      "Automated HR workflows.",
+      "Created a virtual business card management system.",
     ],
-    icon: <BriefcaseIcon className="h-10 w-10 text-blue-500" />,
+    icon: <BriefcaseIcon className="h-10 w-10 text-purple-500" />,
   },
   {
-    year: "2023",
-    title: "Full-Stack Developer at BitsProof Inc.",
-    description: "Delivered cutting-edge ID management solutions.",
+    year: "2019",
+    title: "Co-Founder and CEO of UChange Community",
+    description: "Founded a junior enterprise to address student challenges.",
     details:
-      "Deployed secure web and mobile applications using AWS and GoLang, improving ID processing efficiency by 30%.",
+      "Led initiatives, including networking events and mentorship programs, in collaboration with the USJ Alumni Federation.",
     achievements: [
-      "Developed a scalable microservices architecture",
-      "Led the implementation of a CI/CD pipeline for automated testing",
-      "Mentored 3 junior developers in best practices and coding standards",
-      "Secured a patent for an innovative ID verification algorithm",
+      "Organized mentorship programs.",
+      "Strengthened the university community.",
+      "Inspired student-led projects.",
     ],
-    icon: <CodeBracketIcon className="h-10 w-10 text-green-500" />,
+    icon: <RocketLaunchIcon className="h-10 w-10 text-teal-500" />,
   },
   {
-    year: "2024",
-    title: "Launched Novygen",
-    description: "Founded Novygen to empower small businesses.",
+    year: "2019",
+    title: "Co-Founder of Likalo App",
+    description: "Designed and developed a tourism app connecting travelers with local guides.",
     details:
-      "Built a SaaS platform focused on digital transformation to help small businesses thrive.",
+      "Enabled locals to monetize knowledge while offering tourists authentic cultural experiences.",
     achievements: [
-      "Secured $1M in seed funding from venture capitalists",
-      "Grew the user base to 10,000 businesses in the first year",
-      "Won the Best Startup Award at the Tech Innovation Summit",
-      "Featured in Forbes for innovative solutions in the SMB sector",
+      "Designed a tourism app.",
+      "Enabled locals to monetize knowledge.",
+      "Provided authentic cultural experiences to tourists.",
     ],
-    icon: <RocketLaunchIcon className="h-10 w-10 text-yellow-500" />,
+    icon: <RocketLaunchIcon className="h-10 w-10 text-blue-500" />,
+  },
+  {
+    year: "2019",
+    title: "Assistant Sales and Project Manager at Netiks International",
+    description: "Coordinated project timelines and implemented CI/CD pipelines.",
+    details:
+      "Demonstrated teamwork and problem-solving capabilities across multiple projects.",
+    achievements: ["Implemented CI/CD pipelines.", "Coordinated project timelines."],
+    icon: <BriefcaseIcon className="h-10 w-10 text-orange-500" />,
   },
 ];
 
@@ -125,7 +169,7 @@ const SnapshotTimeline: React.FC = () => {
               <div>
                 <p className="text-gray-700 text-sm text-start">{milestone.description}</p>
                 {milestone.achievements.length > 0 && (
-                  <ul className="text-gray-500 text-xs mt-2">
+                  <ul className="text-gray-500 text-sm mt-2">
                     {milestone.achievements.map((achievement, index) => (
                       <li key={index} className="flex items-center gap-1">
                         <span className="text-gray-400">•</span>
@@ -141,11 +185,14 @@ const SnapshotTimeline: React.FC = () => {
       </div>
       <div className="flex justify-center flex-col items-center gap-4 mt-6">
         <p className="mt-2 italic text-[var(--color-gray-darker)] text-center">
-          Want to add to this Timeline?
+          Have a story to add?
           <br />
-          Dive into the details and discover the stories behind the code.
+          Explore the journey and uncover the innovations behind the code.
         </p>
-        <Button text="Let's get in touch" variant="secondary" />
+        <Button
+          text="Let’s create something together"
+          variant="secondary"
+          link="/contact" />
       </div>
     </div>
   );

@@ -117,7 +117,11 @@ export const FeatureSection: React.FC = () => {
             <br />
             Dive into the details and discover the stories behind the code.
           </p>
-          <Button text="Let's get in touch" variant="secondary" />
+          <Button
+            text="Start a conversation"
+            variant="secondary"
+            link="/contact"
+          />
         </div>
       </div>
     </section>
