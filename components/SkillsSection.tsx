@@ -67,7 +67,7 @@ export const SkillsSection: React.FC = () => {
       title: "Computer Vision",
       images: [
         { src: "/icons/rekognition.png", alt: "AWS Rekognition" },
-        { src: "/icons/opencv.svg", alt: "OpenCV" }
+        { src: "/icons/opencv.png", alt: "OpenCV" }
       ],
     },
     {
@@ -111,7 +111,8 @@ export const SkillsSection: React.FC = () => {
             <br />
             Let’s collaborate and build something incredible.
           </p>
-          <Button text="Let's Collaborate" variant="secondary" />
+          <Button text="Let's Collaborate" variant="secondary"
+            link="/contact" />
         </div>
       </div>
     </section>

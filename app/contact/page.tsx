@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 
 import { ContactForm } from "@components/ContactForm";
 import { TextGeneratedEffect } from "@components/TextGeneratedEffect";
+import Link from "next/link";
 
 export default function ContactPage() {
   return (
@@ -27,7 +28,27 @@ export default function ContactPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className="max-w-3xl mx-auto">
-        <ContactForm />
+            <div className="text-center text-gray-500 text-sm m-6">
+                <Link href="https://calendly.com/elio-gerges-uio5/30min" target="_blank" className="text-gray-500">Book with Calendly</Link>
+            </div>
+            {/* <!-- Calendly inline widget begin --> */}
+            <div
+                className="calendly-inline-widget"
+                data-url="https://calendly.com/elio-gerges-uio5/30min"
+                style={{ minWidth: "320px", height: "700px" }}>
+            </div>
+            <script
+                type="text/javascript"
+                src="https://assets.calendly.com/assets/external/widget.js"
+                async>
+            </script>
+            {/* <!-- Calendly inline widget end --> */}
+
+            <div className="text-center text-gray-500 text-sm m-6">
+                OR
+            </div>
+
+            <ContactForm />
       </motion.section>
     </main>
   );
