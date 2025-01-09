@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import { client } from "@/sanity/lib/client";
-import { PortableText } from "@portabletext/react";
+import { PortableTextRenderer } from "@components/blog/PortableTextRenderer";
 import { RelatedPosts } from "@components/blog/RelatedPosts";
 import { GoogleAd } from "@components/blog/GoogleAd";
 import { urlFor } from "@/sanity/lib/image";
@@ -81,7 +81,7 @@ export default function BlogPostPage() {
 
       {/* Main Content */}
       <section className="prose prose-lg max-w-none">
-        <PortableText value={post.body} />
+        <PortableTextRenderer value={post.body} />
       </section>
 
       {/* Google Ads */}
