@@ -14,7 +14,7 @@ export const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
   const links = [
-    { href: "/blog", label: "Blog" },
+    { href: "./blog", label: "Blog" },
   ];
 
   return (
