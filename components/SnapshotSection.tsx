@@ -20,10 +20,10 @@ const milestones: Milestone[] = [
   {
     year: "2023-Present",
     title: "Full-Stack Developer at Proof of ID",
-    description: "Delivered SaaS solutions focusing on efficient KYC processes and identity verification.",
+    description: "Delivered SaaS solutions with a focus on efficiency and innovation.",
     details:
       "Optimized applications, reducing render times by 30%, while building scalable software.",
-    achievements: ["Reduced render times by 30%.", "Built scalable KYC software solutions."],
+    achievements: ["Reduced render times by 30%.", "Built scalable SaaS software solutions."],
     icon: <BriefcaseIcon className="h-10 w-10 text-green-500" />,
   },
   {

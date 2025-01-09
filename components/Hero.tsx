@@ -46,7 +46,7 @@ const Hero: React.FC = () => {
             <TextGeneratedEffect words="Hey, I'm Elio! \n I turn code into Experiences."/>
           </h1>
           <p className="mt-4 text-base sm:text-lg lg:text-xl text-[var(--color-gray-darker)]">
-            A junior software developer exploring the realms of full-stack
+            A software Engineer exploring the realms of full-stack
             development and crafting user-focused applications with a touch of
             innovation.
           </p>
