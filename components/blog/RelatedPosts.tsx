@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { client } from "@/sanity/lib/client";
 import { BlogCard } from "./BlogCard";
 
-export const RelatedPosts: React.FC<{ currentTags: string[]; currentPostId: string }> = ({
+export const RelatedPosts: React.FC<{ currentTags: { title: string }[]; currentPostId: string }> = ({
   currentTags,
   currentPostId,
 }) => {
@@ -26,10 +26,16 @@ export const RelatedPosts: React.FC<{ currentTags: string[]; currentPostId: stri
             body
           }
         `;
+        const currentTagsList = [];
+        for (let i = 0; i < currentTags.length; i++) {
+          currentTagsList.push(currentTags[i]["title"]);
+        }
         const posts = await client.fetch(query, {
-          categories: currentTags,
+          categories: currentTagsList,
           currentPostId,
         });
+
+        console.log("Related Posts:", posts);
 
         setRelatedPosts(posts);
       } catch (error) {
