@@ -22,6 +22,8 @@ export default function RootLayout({
       <body
         className="antialiased w-[100vw] min-h-[100%]"
       >
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1039385271790053"
+        crossOrigin="anonymous"></script>
           <Navbar />
           <div
             className="min-h-[50rem] w-full max-w-[100vw] overflow-x-hidden dark:bg-black bg-white  dark:bg-dot-white/[0.2] bg-dot-black/[0.2] relative flex items-center justify-center"
