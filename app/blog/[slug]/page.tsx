@@ -16,7 +16,7 @@ export default function BlogPostPage() {
     body: any;
     mainImage: any;
     publishedAt: string;
-    categories: string[];
+    categories: { title: string }[];
   }
 
   const [post, setPost] = useState<Post | null>(null);

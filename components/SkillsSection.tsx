@@ -40,6 +40,13 @@ export const SkillsSection: React.FC = () => {
       ],
     },
     {
+      title: "Content Management",
+      images: [
+        { src: "/icons/sanity.webp", alt: "Sanity" },
+        { src: "/icons/contentful.jpeg", alt: "Contentful" },
+      ],
+    },
+    {
       title: "Cloud & DevOps",
       images: [
         { src: "/icons/aws.png", alt: "AWS" },
