@@ -6,7 +6,7 @@ import "./globals.css";
 import { Footer } from "@components/Footer";
 import { Navbar } from "@components/Navbar";
 import { ErrorFallback } from "@components/ErrorFallback";
-import { GoogleTagManager } from "@next/third-parties/google";
+import { GoogleTagManager, GoogleAnalytics } from "@next/third-parties/google";
 
 export const metadata: Metadata = {
   title: "Elio Gerges - Software Engineer",
@@ -24,6 +24,7 @@ export default function RootLayout({
         <meta name="google-adsense-account" content="ca-pub-1039385271790053" />
         {/* Google Tag Manager Head Script */}
         <GoogleTagManager gtmId="GTM-5JWFGN9F" />
+        <GoogleAnalytics gaId="G-8ZYEDWVYLT" />
       </head>
       <body className="antialiased w-[100vw] min-h-[100%]">
         
