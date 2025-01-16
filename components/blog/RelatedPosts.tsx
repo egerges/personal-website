@@ -3,13 +3,30 @@
 import React, { useEffect, useState } from "react";
 import { client } from "@/sanity/lib/client";
 import { BlogCard } from "./BlogCard";
+import {
+  ArrowLeftIcon,
+  ArrowRightIcon
+} from "@heroicons/react/24/solid";
 
-export const RelatedPosts: React.FC<{ currentTags: { title: string }[]; currentPostId: string }> = ({
-  currentTags,
-  currentPostId,
-}) => {
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+import Slider from "react-slick";
+import { init } from "next/dist/compiled/webpack/webpack";
+
+export const RelatedPosts: React.FC<{
+  currentTags: { title: string }[];
+  currentPostId: string;
+}> = ({ currentTags, currentPostId }) => {
   const [relatedPosts, setRelatedPosts] = useState<
-    { _id: string; title: string; slug: string; mainImage: string; publishedAt: string; body: string }[]
+    {
+      _id: string;
+      title: string;
+      slug: string;
+      mainImage: string;
+      publishedAt: string;
+      body: string;
+    }[]
   >([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -26,17 +43,11 @@ export const RelatedPosts: React.FC<{ currentTags: { title: string }[]; currentP
             body
           }
         `;
-        const currentTagsList = [];
-        for (let i = 0; i < currentTags.length; i++) {
-          currentTagsList.push(currentTags[i]["title"]);
-        }
+        const currentTagsList = currentTags.map((tag) => tag.title);
         const posts = await client.fetch(query, {
           categories: currentTagsList,
           currentPostId,
         });
-
-        console.log("Related Posts:", posts);
-
         setRelatedPosts(posts);
       } catch (error) {
         console.error("Failed to fetch related posts:", error);
@@ -64,13 +75,45 @@ export const RelatedPosts: React.FC<{ currentTags: { title: string }[]; currentP
     );
   }
 
+  const settings = {
+    dots: true,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    currentSlide: 0,
+    slideCount: relatedPosts.length + 1,
+    arrows: true,
+    nextArrow: <ArrowRightIcon />,
+    prevArrow: <ArrowLeftIcon />,
+    autoplay: true,
+    draggable: true,
+    swipe: true,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: { slidesToShow: 3 },
+      },
+      {
+        breakpoint: 768,
+        settings: { slidesToShow: 2 },
+      },
+      {
+        breakpoint: 640,
+        settings: { slidesToShow: 1 },
+      },
+    ],
+  };
+
   return (
     <section className="mt-12">
-      <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+      <Slider {...settings}>
         {relatedPosts.map((post) => (
-          <BlogCard key={post._id} post={post} />
+          <div key={post._id} className="px-2">
+            <BlogCard post={post} />
+          </div>
         ))}
-      </div>
+      </Slider>
     </section>
   );
 };

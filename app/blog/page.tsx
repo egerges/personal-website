@@ -28,7 +28,7 @@ export default function BlogPage() {
             publishedAt
         }`;
         
-        const featuredQuery = `*[_type == "post" && count(categories) > 0][0...3] {
+        const featuredQuery = `*[_type == "post" && featured == true][0...2] {
             _id,
             title,
             slug,
@@ -100,9 +100,9 @@ export default function BlogPage() {
           className="my-10 px-4 max-w-7xl mx-auto">
         <h2 className="text-2xl font-semibold text-gray-800 mb-6">Featured Posts</h2>
         <div className="grid gap-6 md:grid-cols-2">
-          {featuredPosts.map((post) => (
+          {featuredPosts.length > 0 ? featuredPosts.map((post) => (
             <FeaturedPost key={post._id} post={post} />
-          ))}
+          )) : (<p className="text-gray-500">No featured posts available.</p>)}
         </div>
       </motion.section>
 
@@ -115,6 +115,7 @@ export default function BlogPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
            className="my-10 px-4 max-w-7xl mx-auto">
+        <h2 className="text-2xl font-semibold text-gray-800 mb-6">All Posts</h2>
         <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {posts.map((post) => (
             <BlogCard key={post._id} post={post} />

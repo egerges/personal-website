@@ -24,6 +24,12 @@ export const postType = defineType({
       to: {type: 'author'},
     }),
     defineField({
+      name: 'featured',
+      type: 'boolean',
+      title: 'Featured',
+      initialValue: false,
+    }),
+    defineField({
       name: 'mainImage',
       type: 'image',
       options: {

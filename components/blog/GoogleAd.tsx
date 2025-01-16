@@ -9,13 +9,23 @@ export const GoogleAd: React.FC<{ adSlot: string }> = ({ adSlot }) => {
       role="complementary"
       aria-label="Advertisement"
     >
+      <script
+        async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1039385271790053"
+        crossOrigin="anonymous"
+      />
       <ins
         className="adsbygoogle"
-        style={{ display: "block" }}
-        data-ad-client="ca-pub-1234567890123456"
-        data-ad-slot={adSlot}
-        data-ad-format="auto"
-        data-full-width-responsive="true"
+        style={{ display: "block", textAlign: "center" }}
+        data-ad-layout="in-article"
+        data-ad-format="fluid"
+        data-ad-client="ca-pub-1039385271790053"
+        data-ad-slot="8230692897"
+      />
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `(adsbygoogle = window.adsbygoogle || []).push({});`,
+        }}
       />
     </div>
   );
