@@ -42,6 +42,10 @@ async function fetchPost(slug: string): Promise<Post | null> {
   }
 }
 
+interface blogSlugParams {
+  slug: string;
+}
+
 /**
  * (Optional) generateMetadata for dynamic head tags
  * This function runs server-side before rendering the page.
@@ -49,7 +53,7 @@ async function fetchPost(slug: string): Promise<Post | null> {
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
+  params: blogSlugParams;
 }): Promise<Metadata> {
   const post = await fetchPost(params.slug);
 
@@ -91,7 +95,7 @@ export async function generateMetadata({
 export default async function BlogPostPage({
   params,
 }: {
-  params: { slug: string };
+  params: blogSlugParams;
 }) {
   const post = await fetchPost(params.slug);
 
