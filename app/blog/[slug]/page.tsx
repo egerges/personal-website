@@ -91,7 +91,7 @@ export async function generateMetadata({
       images: post.mainImage
         ? [
             {
-              url: urlFor(post.mainImage).url(),
+              url: urlFor(post.mainImage).width(800).url(),
               width: 800,
               height: 600,
             },
@@ -143,7 +143,7 @@ export default async function BlogPostPage({
         <header className="mb-8">
           {post.mainImage && (
             <Image
-              src={urlFor(post.mainImage).url()}
+              src={urlFor(post.mainImage).width(800).url()}
               alt={post.title}
               className="w-full rounded-lg shadow-lg mb-6"
               width={800}
@@ -159,7 +159,8 @@ export default async function BlogPostPage({
             <div className="flex items-center mt-2">
               {post.author.image && (
                 <Image
-                  src={urlFor(post.author.image).url()}
+
+                  src={urlFor(post.author.image).width(25).url()}
                   alt={post.author.name || "Unknown"}
                   className="w-[25px] h-[25px] rounded-full mr-2"
                   width={25}

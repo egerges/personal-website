@@ -16,6 +16,8 @@ export const FeaturedPost: React.FC<{ post: any }> = ({ post }) => {
           src={urlFor(post.mainImage).width(800).height(450).url()}
           alt={post.mainImage.alt || "Featured post image"}
           className="w-full h-56 object-cover"
+          width={800}
+          height={450}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent p-6 flex flex-col justify-end">
           <h2 className="text-xl font-bold text-white">{post.title}</h2>
