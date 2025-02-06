@@ -36,7 +36,7 @@ export const TextGeneratedEffect = ({
     return (
       <motion.div ref={scope}>
         {wordsArray.map((word, idx) => {
-          return word.includes("\\n") ? <br/> : (
+          return word.includes("\\n") ? <br key={`br-${word + idx}`}/> : (
             <motion.span
               key={word + idx}
               className="bg-clip-text bg-gradient-to-br from-[var(--color-blue-primary)] to-[var(--color-pink-primary)] opacity-0"
