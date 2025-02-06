@@ -4,6 +4,7 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import Link from 'next/link';
 
 import { client } from "@/sanity/lib/client";
 import { BlogCard } from "@components/blog/BlogCard";
@@ -17,6 +18,13 @@ export default function BlogPage() {
   const [posts, setPosts] = useState<any[]>([]);
   const [featuredPosts, setFeaturedPosts] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [searchQuery, setSearchQuery] = useState("");
+
+  // Get unique titles and categories for suggestions
+  const suggestions = Array.from(new Set([
+    ...posts.map(post => post.title),
+    ...posts.flatMap(post => post.categories?.map((cat: any) => cat.title) || [])
+  ]));
 
   useEffect(() => {
     async function fetchPosts() {
@@ -38,7 +46,6 @@ export default function BlogPage() {
             mainImage,
             body
         }`;
-          
 
         const [allPosts, featured] = await Promise.all([
           client.fetch(postsQuery),
@@ -60,6 +67,11 @@ export default function BlogPage() {
     fetchPosts();
   }, []);
 
+  const filteredPosts = posts.filter(post =>
+    post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    post.categories?.some((cat: any) => cat.title.toLowerCase().includes(searchQuery.toLowerCase()))
+  );
+
   if (isLoading) {
     return <Loader />;
   }
@@ -71,11 +83,31 @@ export default function BlogPage() {
         <p className="mt-2 text-gray-600">
           Exploring technology, design, and innovation one post at a time.
         </p>
-        <BlogSearchBar />
+        <BlogSearchBar searchQuery={searchQuery} onSearchChange={setSearchQuery} suggestions={suggestions} />
         <p className="mt-10 text-gray-500">No blog posts available yet. Check back soon!</p>
       </section>
     );
   }
+
+  const NoResultsMessage = () => (
+    <div className="text-center py-10">
+      <p className="text-gray-600 mb-4">
+        No posts found matching &quot;{searchQuery}&quot;. Would you like to write about this topic?
+      </p>
+      <div className="space-y-4">
+        <Link
+            href="/contact"
+            className="px-4 py-3 bg-gradient-to-r from-blue-500 to-pink-500 text-white rounded-lg shadow-lg hover:shadow-xl transition"
+            aria-label="Contact Me to Contribute"
+          >
+            Contact Me to Contribute
+          </Link>
+        <p className="text-sm text-gray-500">
+          Share your knowledge and expertise with our community!
+        </p>
+      </div>
+    </div>
+  );
 
   return (
     <section className="min-h-screen mt-16">
@@ -92,7 +124,11 @@ export default function BlogPage() {
           <p className="mt-4 text-base sm:text-lg lg:text-xl text-[var(--color-gray-darker)]">
           Exploring technology, design, and innovation one post at a time.
           </p>
-          <BlogSearchBar />
+          <BlogSearchBar 
+            searchQuery={searchQuery} 
+            onSearchChange={setSearchQuery}
+            suggestions={suggestions}
+          />
       </motion.section>
 
       {/* Featured Posts */}
@@ -119,11 +155,15 @@ export default function BlogPage() {
           transition={{ duration: 0.8 }}
            className="my-10 px-4 max-w-7xl mx-auto">
         <h2 className="text-2xl font-semibold text-gray-800 mb-6">All Posts</h2>
-        <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-          {posts.map((post) => (
-            <BlogCard key={post._id} post={post} />
-          ))}
-        </div>
+        {filteredPosts.length === 0 ? (
+          <NoResultsMessage />
+        ) : (
+          <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+            {filteredPosts.map((post) => (
+              <BlogCard key={post._id} post={post} />
+            ))}
+          </div>
+        )}
       </motion.section>
 
       {/* Google Ad */}
