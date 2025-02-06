@@ -45,7 +45,7 @@ async function fetchPost(slug: string): Promise<Post | null> {
   }
 }
 
-type BlogPostParams = {
+type BlogPageProps = {
   params: {
     slug: string;
   };
@@ -57,7 +57,7 @@ type BlogPostParams = {
  */
 export async function generateMetadata({
   params,
-}: BlogPostParams): Promise<Metadata> {
+}: BlogPageProps): Promise<Metadata> {
   const post = await fetchPost(params.slug);
 
   if (!post) {
@@ -97,7 +97,7 @@ export async function generateMetadata({
  */
 export default async function BlogPostPage({
   params,
-}: BlogPostParams) {
+}: BlogPageProps) {
   const post = await fetchPost(params.slug);
 
   // If no post was found, show a 404 not found page
