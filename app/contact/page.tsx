@@ -57,7 +57,7 @@ export default function ContactPage() {
               Loading Calendly... (Click the link below if calender does not appear!)
             </div>}
           <br />
-          <Link href="https://calendly.com/elio-gerges-uio5/30min" target="_blank" className="text-[var(--blue-primary)] text-lg">
+          <Link href="https://calendly.com/elio-gerges2000/30min" target="_blank" className="text-[var(--blue-primary)] text-lg">
             <span className="flex items-center justify-center gap-4">
               Book with Calendly <ArrowTopRightOnSquareIcon className="w-5 h-5 text-blue-500"/>
             </span>
@@ -67,7 +67,7 @@ export default function ContactPage() {
         {/* Calendly inline widget */}
         <div
           className="calendly-inline-widget"
-          data-url="https://calendly.com/elio-gerges-uio5/30min"
+          data-url="https://calendly.com/elio-gerges2000/30min"
           style={{ minWidth: "320px", height: "700px" }}
           ref={calendlyRef}
         />
