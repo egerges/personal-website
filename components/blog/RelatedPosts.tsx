@@ -12,7 +12,6 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 import Slider from "react-slick";
-import { init } from "next/dist/compiled/webpack/webpack";
 
 export const RelatedPosts: React.FC<{
   currentTags: { title: string }[];

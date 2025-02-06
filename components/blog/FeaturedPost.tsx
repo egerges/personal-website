@@ -1,7 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
 
 export const FeaturedPost: React.FC<{ post: any }> = ({ post }) => {
@@ -10,7 +12,7 @@ export const FeaturedPost: React.FC<{ post: any }> = ({ post }) => {
   return (
     <div className="relative rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow bg-gradient-to-r from-gray-100 to-gray-300">
       <Link href={`/blog/${post.slug.current}`} aria-label={`Read featured post: ${post.title}`}>
-        <img
+        <Image
           src={urlFor(post.mainImage).width(800).height(450).url()}
           alt={post.mainImage.alt || "Featured post image"}
           className="w-full h-56 object-cover"

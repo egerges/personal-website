@@ -15,7 +15,7 @@ const PrivacyPolicy: React.FC = () => {
 
       <div className="mt-8 text-gray-800">
         <p>
-          Your privacy is important. This Privacy Policy explains how we collect, use, and protect your personal information when you visit the portfolio website of Elio Gerges ("the Website"). By using the Website, you agree to the terms of this Privacy Policy.
+          Your privacy is important. This Privacy Policy explains how we collect, use, and protect your personal information when you visit the portfolio website of Elio Gerges (&quot;the Website&quot;). By using the Website, you agree to the terms of this Privacy Policy.
         </p>
 
         <h2 className="text-xl font-semibold mt-6">1. Information We Collect</h2>

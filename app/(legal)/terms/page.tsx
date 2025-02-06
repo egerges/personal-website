@@ -15,7 +15,7 @@ const TermsAndConditions: React.FC = () => {
 
       <div className="mt-8 text-gray-800">
         <p>
-          Welcome to the personal portfolio website of Elio Gerges ("the Website"). By accessing or using this Website, you agree to be bound by these Terms and Conditions. If you do not agree, please refrain from using the Website.
+          Welcome to the personal portfolio website of Elio Gerges (&quot;the Website&quot;). By accessing or using this Website, you agree to be bound by these Terms and Conditions. If you do not agree, please refrain from using the Website.
         </p>
 
         <h2 className="text-xl font-semibold mt-6">1. Website Use</h2>
@@ -50,8 +50,8 @@ const TermsAndConditions: React.FC = () => {
         <p>Your privacy is important to us. Please review our <a href="/privacy" className="text-blue-500 underline">Privacy Policy</a> to understand how your information is collected, used, and protected while using this Website.</p>
 
         <h2 className="text-xl font-semibold mt-6">4. Disclaimer of Warranties</h2>
-        <h3 className="mt-4 font-semibold">4.1 "As-Is" Basis</h3>
-        <p>This Website is provided on an "as-is" and "as-available" basis. Elio Gerges makes no representations or warranties of any kind regarding the Website or its content.</p>
+        <h3 className="mt-4 font-semibold">4.1 &quot;As-Is&quot; Basis</h3>
+        <p>This Website is provided on an &quot;as-is&quot; and &quot;as-available&quot; basis. Elio Gerges makes no representations or warranties of any kind regarding the Website or its content.</p>
 
         <h3 className="mt-4 font-semibold">4.2 No Guarantee</h3>
         <p>While efforts are made to ensure the accuracy and reliability of the content, no guarantees are provided regarding the completeness, accuracy, or suitability of the information.</p>
@@ -90,7 +90,7 @@ const TermsAndConditions: React.FC = () => {
         <p>You agree to indemnify and hold harmless Elio Gerges from any claims, damages, or expenses (including legal fees) arising out of your use of the Website or violation of these Terms and Conditions.</p>
 
         <h2 className="text-xl font-semibold mt-6">12. Changes to Terms and Conditions</h2>
-        <p>Elio Gerges may update these Terms and Conditions periodically. Changes will be posted with a new "Effective Date," and continued use of the Website constitutes acceptance of the updated Terms.</p>
+        <p>Elio Gerges may update these Terms and Conditions periodically. Changes will be posted with a new &quot;Effective Date,&quot; and continued use of the Website constitutes acceptance of the updated Terms.</p>
 
         <h2 className="text-xl font-semibold mt-6">13. Contact Information</h2>
         <p>

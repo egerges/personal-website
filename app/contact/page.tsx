@@ -38,7 +38,7 @@ export default function ContactPage() {
           <TextGeneratedEffect words="Contact Me!" />
         </h1>
         <p className="mt-4 text-base sm:text-lg lg:text-xl text-[var(--color-gray-darker)]">
-          Have a question or want to work together? Book a coffee chat and let's discuss.
+          Have a question or want to work together? Book a coffee chat and let&apos;s discuss.
         </p>
       </motion.section>
 

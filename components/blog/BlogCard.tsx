@@ -1,7 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
 
 export const BlogCard: React.FC<{ post: any }> = ({ post }) => {
@@ -13,10 +15,12 @@ export const BlogCard: React.FC<{ post: any }> = ({ post }) => {
       <Link href={`/blog/${post.slug.current}`} aria-label={`Read more about ${post.title}`}>
         {/* Main Image */}
         {post.mainImage ? (
-          <img
+          <Image
             src={urlFor(post.mainImage).width(400).height(250).url()}
             alt={post.mainImage.alt || "Blog post image"}
             className="w-full h-48 object-cover"
+            width={400}
+            height={250}
           />
         ) : (
           <div className="w-full h-48 bg-gray-200 flex items-center justify-center">

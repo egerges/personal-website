@@ -1,4 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import { Metadata } from "next";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { client } from "@/sanity/lib/client";
 import { PortableTextRenderer } from "@components/blog/PortableTextRenderer"; // Client component
@@ -42,9 +45,11 @@ async function fetchPost(slug: string): Promise<Post | null> {
   }
 }
 
-interface blogSlugParams {
-  slug: string;
-}
+type BlogPostParams = {
+  params: {
+    slug: string;
+  };
+};
 
 /**
  * (Optional) generateMetadata for dynamic head tags
@@ -52,9 +57,7 @@ interface blogSlugParams {
  */
 export async function generateMetadata({
   params,
-}: {
-  params: blogSlugParams;
-}): Promise<Metadata> {
+}: BlogPostParams): Promise<Metadata> {
   const post = await fetchPost(params.slug);
 
   if (!post) {
@@ -94,9 +97,7 @@ export async function generateMetadata({
  */
 export default async function BlogPostPage({
   params,
-}: {
-  params: blogSlugParams;
-}) {
+}: BlogPostParams) {
   const post = await fetchPost(params.slug);
 
   // If no post was found, show a 404 not found page
@@ -129,10 +130,12 @@ export default async function BlogPostPage({
         {/* Header */}
         <header className="mb-8">
           {post.mainImage && (
-            <img
+            <Image
               src={urlFor(post.mainImage).url()}
               alt={post.title}
               className="w-full rounded-lg shadow-lg mb-6"
+              width={800}
+              height={600}
             />
           )}
           <h1 className="text-4xl font-bold text-gray-900">{post.title}</h1>
@@ -143,10 +146,12 @@ export default async function BlogPostPage({
           {post.author && (
             <div className="flex items-center mt-2">
               {post.author.image && (
-                <img
+                <Image
                   src={urlFor(post.author.image).url()}
                   alt={post.author.name || "Unknown"}
                   className="w-[25px] h-[25px] rounded-full mr-2"
+                  width={25}
+                  height={25}
                 />
               )}
               <p className="text-gray-600 text-sm">

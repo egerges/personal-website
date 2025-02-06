@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
-import { motion, useScroll } from "framer-motion";
+import React from "react";
+import { motion } from "framer-motion";
 import { AcademicCapIcon, BriefcaseIcon, RocketLaunchIcon, SparklesIcon } from "@heroicons/react/24/solid";
 
 import { TextGeneratedEffect } from "@components/TextGeneratedEffect";
@@ -135,7 +135,7 @@ const SnapshotTimeline: React.FC = () => {
         <p className="mt-4 text-base sm:text-lg lg:text-xl text-[var(--color-gray-darker)]">
         From curious beginnings to crafting innovative solutions, this timeline showcases 
         the key moments that shaped my journey as a developer and entrepreneur. Dive into 
-        the highlights that define where I've been and where I'm headed.
+        the highlights that define where I&apos;ve been and where I&apos;m headed.
         </p>
       </motion.div>
 

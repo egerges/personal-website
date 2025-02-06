@@ -5,7 +5,7 @@ import Image from "next/image";
 
 import Button from "@components/Button";
 import { TextGeneratedEffect } from "@components/TextGeneratedEffect";
-import CustomCursor from "@components/CustomCursor";
+// import CustomCursor from "@components/CustomCursor";
 
 const Hero: React.FC = () => {
   return (
