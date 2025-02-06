@@ -9,6 +9,12 @@ import { RelatedPosts } from "@components/blog/RelatedPosts"; // Client componen
 import { GoogleAd } from "@components/blog/GoogleAd"; // Client component
 import { urlFor } from "@/sanity/lib/image";
 
+/**
+ * 1) Indicate that this route is dynamic so Next.js won't attempt static generation.
+ *    This is often necessary when dealing with dynamic or async route data.
+ */
+export const dynamic = 'force-dynamic';
+
 // Define the shape of your post data
 interface Post {
   _id: string;
@@ -46,10 +52,10 @@ async function fetchPost(slug: string): Promise<Post | null> {
 }
 
 type BlogPageProps = {
-  params: {
-    slug: string;
-  };
+  slug: string;
 };
+
+type AsyncBlogPageProps = Promise<BlogPageProps>;;
 
 /**
  * (Optional) generateMetadata for dynamic head tags
@@ -57,8 +63,11 @@ type BlogPageProps = {
  */
 export async function generateMetadata({
   params,
-}: BlogPageProps): Promise<Metadata> {
-  const post = await fetchPost(params.slug);
+}: {
+  params: AsyncBlogPageProps;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const post = await fetchPost(slug);
 
   if (!post) {
     return {
@@ -97,8 +106,11 @@ export async function generateMetadata({
  */
 export default async function BlogPostPage({
   params,
-}: BlogPageProps) {
-  const post = await fetchPost(params.slug);
+}: {
+  params: AsyncBlogPageProps;
+}) {
+  const { slug } = await params;
+  const post = await fetchPost(slug);
 
   // If no post was found, show a 404 not found page
   if (!post) {
