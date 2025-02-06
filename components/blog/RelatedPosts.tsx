@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { client } from "@/sanity/lib/client";
 import { BlogCard } from "./BlogCard";
+import Loader from "../Loader";
 import {
   ArrowLeftIcon,
   ArrowRightIcon
@@ -63,7 +64,7 @@ export const RelatedPosts: React.FC<{
   }, [currentTags, currentPostId]);
 
   if (isLoading) {
-    return <p className="text-center text-gray-500">Loading related posts...</p>;
+    return <Loader />;
   }
 
   if (!relatedPosts.length) {

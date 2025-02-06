@@ -11,6 +11,7 @@ import { FeaturedPost } from "@components/blog/FeaturedPost";
 import { BlogSearchBar } from "@components/blog/BlogSearchBar";
 import { GoogleAd } from "@components/blog/GoogleAd";
 import { TextGeneratedEffect } from "@components/TextGeneratedEffect";
+import Loader from "@/components/Loader";
 
 export default function BlogPage() {
   const [posts, setPosts] = useState<any[]>([]);
@@ -60,7 +61,7 @@ export default function BlogPage() {
   }, []);
 
   if (isLoading) {
-    return <p className="text-center text-gray-500">Loading...</p>;
+    return <Loader />;
   }
 
   if (!posts.length) {

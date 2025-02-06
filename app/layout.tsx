@@ -7,6 +7,8 @@ import { Footer } from "@components/Footer";
 import { Navbar } from "@components/Navbar";
 import { ErrorFallback } from "@components/ErrorFallback";
 import { GoogleTagManager, GoogleAnalytics } from "@next/third-parties/google";
+import { Suspense } from "react";
+import Loader from "@/components/Loader";
 
 export const metadata: Metadata = {
   title: "Elio Gerges - Software Engineer",
@@ -50,7 +52,9 @@ export default function RootLayout({
           className="min-h-[50rem] w-full max-w-[100vw] overflow-x-hidden dark:bg-black bg-white dark:bg-dot-white/[0.2] bg-dot-black/[0.2] relative flex items-center justify-center"
         >
           <ErrorBoundary FallbackComponent={ErrorFallback}>
-            {children}
+            <Suspense fallback={<Loader />}>
+              {children}
+            </Suspense>
           </ErrorBoundary>
         </div>
         <Footer />

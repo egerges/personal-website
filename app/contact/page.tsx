@@ -9,6 +9,7 @@ import {
 // import { ContactForm } from "@components/ContactForm";
 import { TextGeneratedEffect } from "@components/TextGeneratedEffect";
 import Link from "next/link";
+import Loader from "@/components/Loader";
 
 export default function ContactPage() {
   const calendlyRef = useRef<HTMLDivElement>(null);
@@ -49,7 +50,12 @@ export default function ContactPage() {
         className="max-w-3xl mx-auto"
       >
         <div className="text-center text-gray-500 text-sm m-6">
-          {!isCalendlyLoaded && <span>Loading Calendly... (Click the link below if calender does not appear!)</span>}
+          {!isCalendlyLoaded &&
+            <div>
+              <Loader />
+              <br />
+              Loading Calendly... (Click the link below if calender does not appear!)
+            </div>}
           <br />
           <Link href="https://calendly.com/elio-gerges-uio5/30min" target="_blank" className="text-[var(--blue-primary)] text-lg">
             <span className="flex items-center justify-center gap-4">
