@@ -13,20 +13,13 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 import Slider from "react-slick";
+import Post from "@/types/Post";
 
 export const RelatedPosts: React.FC<{
   currentTags: { title: string }[];
   currentPostId: string;
 }> = ({ currentTags, currentPostId }) => {
-  const [relatedPosts, setRelatedPosts] = useState<
-    {
-      _id: string;
-      title: string;
-      slug: string;
-      mainImage: string;
-      publishedAt: string;
-      body: string;
-    }[]
+  const [relatedPosts, setRelatedPosts] = useState<Post[]
   >([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -39,8 +32,10 @@ export const RelatedPosts: React.FC<{
             title,
             slug,
             mainImage,
+            body,
+            categories[]->{title},
             publishedAt,
-            body
+            author->{name, image}
           }
         `;
         const currentTagsList = currentTags.map((tag) => tag.title);

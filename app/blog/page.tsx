@@ -36,7 +36,8 @@ export default function BlogPage() {
             mainImage,
             body,
             categories[]->{title},
-            publishedAt
+            publishedAt,
+            author->{name, image}
         }`;
         
         const featuredQuery = `*[_type == "post" && featured == true][0...2] {
