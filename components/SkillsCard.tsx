@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import Tooltip from "./Tooltip";
 
 export const SkillsCard: React.FC<{
