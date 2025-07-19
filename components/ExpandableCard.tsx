@@ -94,10 +94,6 @@ export const ExpandableCard: React.FC<ExpandableCardProps> = ({
           transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
         />
 
-
-
-        {/* Neon Border Animation */}
-
         {/* Main Content */}
         <div className="relative z-10 bg-white/80 backdrop-blur-xl rounded-3xl">
           {/* Image Section with Holographic Effect */}
