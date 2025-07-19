@@ -103,27 +103,29 @@ export const FeatureSection: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className="text-center mb-16 sm:mb-20"
-      >
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-slate-900 via-blue-900 to-purple-900 mb-6">
-          <TextGeneratedEffect words="Crafting Impactful Solutions."/>
-        </h1>
-        <motion.p 
-          className="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
         >
-          Every project is a story, and every story leaves an impact. Here are the solutions
-          I've crafted—each one blending creativity, technical expertise, and a drive to deliver
-          meaningful results.
-        </motion.p>
-      </motion.div>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-slate-900 via-blue-900 to-purple-900 mb-6">
+            <TextGeneratedEffect words="Crafting Impactful Solutions."/>
+          </h1>
+          <motion.p 
+            className="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+          >
+            Every project is a story, and every story leaves an impact. Here are the solutions
+            I've crafted—each one blending creativity, technical expertise, and a drive to deliver
+            meaningful results.
+          </motion.p>
+        </motion.div>
 
         {/* Projects Grid */}
         <motion.div 
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+        >
           {projects.map((project, index) => (
             <motion.div
               key={index}
