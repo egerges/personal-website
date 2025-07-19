@@ -1,6 +1,5 @@
 "use client";
 
-import 'react-dom';
 import React from "react";
 import { motion } from "framer-motion";
 import { ShieldCheckIcon, EyeIcon, LockClosedIcon } from "@heroicons/react/24/solid";
