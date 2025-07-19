@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import { cn } from "@/lib/utils";
 import { 
   AcademicCapIcon, 
   BriefcaseIcon, 
@@ -165,9 +166,10 @@ const SnapshotSection: React.FC = () => {
             {milestones.map((milestone, index) => (
               <motion.div
                 key={index}
-                className={`relative flex flex-col lg:flex-row items-start lg:items-center gap-6 lg:gap-12 ${
-                  index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'
-                }`}
+                className={cn(
+                  "relative flex flex-col lg:flex-row items-start lg:items-center gap-6 lg:gap-12",
+                  index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
+                )}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
@@ -200,9 +202,10 @@ const SnapshotSection: React.FC = () => {
 
                 {/* Content Card */}
                 <motion.div 
-                  className={`flex-1 bg-white/8 backdrop-blur-xl rounded-3xl p-6 lg:p-8 border border-white/10 shadow-2xl relative overflow-hidden group ${
-                    index % 2 === 0 ? 'lg:mr-8' : 'lg:ml-8'
-                  }`}
+                  className={cn(
+                    "flex-1 bg-white/8 backdrop-blur-xl rounded-3xl p-6 lg:p-8 border border-white/10 shadow-2xl relative overflow-hidden group",
+                    index % 2 === 0 ? "lg:mr-8" : "lg:ml-8"
+                  )}
                   whileHover={{
                     scale: 1.02,
                     backgroundColor: "rgba(255, 255, 255, 0.12)",
