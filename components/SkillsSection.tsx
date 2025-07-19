@@ -84,6 +84,16 @@ export const SkillsSection: React.FC = () => {
         { src: "/icons/responsive.webp", alt: "Responsive Design" },
       ],
     },
+    {
+      title: "Digital Transformation",
+      images: [
+        { src: "/icons/copilot.webp", alt: "Microsoft Copilot" },
+        { src: "/icons/copilot-studio.webp", alt: "Microsoft Copilot Studio" },
+        { src: "/icons/fabric.png", alt: "Microsoft Fabric" },
+        { src: "/icons/power-apps.webp", alt: "Microsoft Power Apps" },
+        { src: "/icons/power-automate.png", alt: "Microsoft Power Automate" },
+      ],
+    },
   ];
 
   return (
