@@ -51,7 +51,7 @@ const TermsAndConditions: React.FC = () => {
           {/* Glowing border effect */}
           <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 via-pink-500/20 to-blue-500/20 rounded-3xl blur-xl -z-10"></div>
           
-          <div className="text-gray-100 space-y-8">
+          <div className="text-gray-800 space-y-8">
         <p>
           Welcome to the personal portfolio website of Elio Gerges ("the Website"). By accessing or using this Website, you agree to be bound by these Terms and Conditions. If you do not agree, please refrain from using the Website.
         </p>
@@ -172,7 +172,7 @@ const TermsAndConditions: React.FC = () => {
         <p className="mb-4">
           For questions or concerns about these Terms and Conditions, please contact:
           <br />
-                <strong>Email:</strong> <a href="mailto:legal@eliogerges.com" className="text-cyan-400 underline hover:text-cyan-300 transition-colors">legal@eliogerges.com</a>
+          <strong>Email:</strong> <a href="mailto:legal@eliogerges.com" className="text-blue-600 underline hover:text-blue-500 transition-colors">legal@eliogerges.com</a>
           <br />
           <strong>Address:</strong> California, US
         </p>

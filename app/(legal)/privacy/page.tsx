@@ -51,7 +51,7 @@ const PrivacyPolicy: React.FC = () => {
           {/* Glowing border effect */}
           <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 via-blue-500/20 to-purple-500/20 rounded-3xl blur-xl -z-10"></div>
           
-          <div className="text-gray-100 space-y-8">
+          <div className="text-gray-800 space-y-8">
         <p>
           Your privacy is important. This Privacy Policy explains how we collect, use, and protect your personal information when you visit the portfolio website of Elio Gerges (&quot;the Website&quot;). By using the Website, you agree to the terms of this Privacy Policy.
         </p>
@@ -157,17 +157,17 @@ const PrivacyPolicy: React.FC = () => {
               </h2>
         <h3 className="text-xl font-semibold mt-6 text-cyan-300">5.1 GDPR Rights (EU Visitors)</h3>
         <p className="mb-4">
-          EU residents have the right to access, correct, delete, restrict processing, and more. Contact us at <a href="mailto:legal@eliogerges.com" className="text-blue-500 underline">legal@eliogerges.com</a> to exercise these rights.
+          EU residents have the right to access, correct, delete, restrict processing, and more. Contact us at <a href="mailto:legal@eliogerges.com" className="text-blue-600 underline hover:text-blue-500 transition-colors">legal@eliogerges.com</a> to exercise these rights.
         </p>
 
         <h3 className="text-xl font-semibold mt-6 text-cyan-300">5.2 CCPA Rights (California Residents)</h3>
         <p className="mb-4">
-          California residents have the right to know, delete, and opt-out of data collection. Submit requests at <a href="mailto:legal@eliogerges.com" className="text-blue-500 underline">legal@eliogerges.com</a>.
+          California residents have the right to know, delete, and opt-out of data collection. Submit requests at <a href="mailto:legal@eliogerges.com" className="text-blue-600 underline hover:text-blue-500 transition-colors">legal@eliogerges.com</a>.
         </p>
 
         <h3 className="text-xl font-semibold mt-6 text-cyan-300">5.3 Dubai and Lebanon</h3>
         <p className="mb-4">
-          Visitors may request access, correction, or deletion of personal information by contacting <a href="mailto:legal@eliogerges.com" className="text-blue-500 underline">legal@eliogerges.com</a>.
+          Visitors may request access, correction, or deletion of personal information by contacting <a href="mailto:legal@eliogerges.com" className="text-blue-600 underline hover:text-blue-500 transition-colors">legal@eliogerges.com</a>.
         </p>
 
         <h2 className="text-xl font-semibold mt-8 text-purple-400">6. Cookies and Tracking Technologies</h2>
@@ -183,7 +183,7 @@ const PrivacyPolicy: React.FC = () => {
         <p className="mb-4">
           For questions, contact us at:
           <br />
-                <strong>Email:</strong> <a href="mailto:legal@eliogerges.com" className="text-cyan-400 underline hover:text-cyan-300 transition-colors">legal@eliogerges.com</a>
+          <strong>Email:</strong> <a href="mailto:legal@eliogerges.com" className="text-blue-600 underline hover:text-blue-500 transition-colors">legal@eliogerges.com</a>
           <br />
           <strong>Address:</strong> California, US
         </p>
