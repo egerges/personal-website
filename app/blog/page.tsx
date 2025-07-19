@@ -171,26 +171,27 @@ export default function BlogPage() {
 
       {/* All Posts */}
       <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-           className="my-10 px-4 max-w-7xl mx-auto">
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="my-10 px-4 max-w-7xl mx-auto"
+      >
         <div className="relative bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-8 shadow-2xl">
           <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 via-pink-500/10 to-blue-500/10 rounded-3xl blur-xl -z-10"></div>
           
           <h2 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-500 mb-8 text-center">
             All Posts
           </h2>
-        {filteredPosts.length === 0 ? (
-          <NoResultsMessage />
-        ) : (
+          
+          {filteredPosts.length === 0 ? (
+            <NoResultsMessage />
+          ) : (
             <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-            {filteredPosts.map((post) => (
-              <BlogCard key={post._id} post={post} />
-            ))}
+              {filteredPosts.map((post) => (
+                <BlogCard key={post._id} post={post} />
+              ))}
             </div>
-          </div>
-        )}
+          )}
         </div>
       </motion.div>
 
