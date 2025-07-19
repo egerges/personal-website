@@ -79,14 +79,8 @@ const SnapshotSection: React.FC = () => {
   };
 
   return (
-    <section className="relative w-full py-16 sm:py-20 lg:py-24 bg-white">
+    <section className="relative w-full py-16 sm:py-20 lg:py-24">
       {/* Subtle Texture */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0" style={{
-          backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(71, 85, 105, 0.3) 1px, transparent 0)',
-          backgroundSize: '30px 30px'
-        }} />
-      </div>
 
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}

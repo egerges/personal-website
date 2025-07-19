@@ -87,14 +87,8 @@ export const SkillsSection: React.FC = () => {
   ];
 
   return (
-    <section className="relative w-full py-16 sm:py-20 lg:py-24 bg-gray-50 max-w-[100vw]" aria-labelledby="skills-section-title">
+    <section className="relative w-full py-16 sm:py-20 lg:py-24 max-w-[100vw]" aria-labelledby="skills-section-title">
       {/* Minimal Texture */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0" style={{
-          backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(71, 85, 105, 0.2) 1px, transparent 0)',
-          backgroundSize: '40px 40px'
-        }} />
-      </div>
 
       <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
