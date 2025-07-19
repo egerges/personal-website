@@ -3,45 +3,81 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-import { WobbleCard } from "@components/WobbleCard";
-import { LargeWobbleCard } from "@components/LargeWobbleCard";
-import { SmallWobbleCard } from "@components/SmallWobbleCard";
-import { LargeWobbleCardWithNoise } from "@components/LargeWobbleCardWithNoise";
+import { ExpandableCard } from "@components/ExpandableCard";
 import { TextGeneratedEffect } from "@components/TextGeneratedEffect";
 import Button from "@components/Button";
 
-interface projects {
-  type: string;
+interface Project {
   title: string;
-  content: string;
+  shortDescription: string;
+  fullDescription: string;
   image: string;
-  cta: string;
+  technologies: string[];
+  category: string;
+  year: string;
+  status: "completed" | "in-progress" | "concept";
+  links?: {
+    demo?: string;
+    github?: string;
+    details?: string;
+  };
 }
 
-const projects: projects[] = [
+const projects: Project[] = [
   {
-    type: "large",
     title: "E-Commerce Application with Store Management and eShop",
-    content:
-      "Built a web and mobile e-commerce platform with robust store management tools, enabling businesses to manage inventory, track orders, and enhance customer engagement seamlessly.",
+    shortDescription: "Full-stack e-commerce platform with comprehensive management tools",
+    fullDescription: "Built a complete web and mobile e-commerce platform with robust store management tools, enabling businesses to manage inventory, track orders, process payments, and enhance customer engagement seamlessly. Features include real-time analytics, automated notifications, and multi-vendor support.",
     image: "/ecommerce.png",
-    cta: "Learn More",
+    technologies: ["React", "Node.js", "MongoDB", "Stripe", "AWS", "React Native"],
+    category: "E-Commerce",
+    year: "2023",
+    status: "completed",
+    links: {
+      demo: "#",
+      github: "#",
+      details: "#"
+    }
   },
   {
-    type: "small",
     title: "AI-Based Liveness Detection System",
-    content:
-      "Developed an AI-powered liveness detection solution to enhance security by verifying user authenticity and reducing fraudulent activities in identity verification processes.",
-    image: "",
-    cta: "Explore",
+    shortDescription: "AI-powered security solution for identity verification",
+    fullDescription: "Developed an advanced AI-powered liveness detection solution using computer vision and machine learning to enhance security by verifying user authenticity and reducing fraudulent activities in identity verification processes. Implemented real-time face analysis with 99.7% accuracy.",
+    image: "/hero.png", // Using available image as placeholder
+    technologies: ["Python", "TensorFlow", "OpenCV", "AWS Rekognition", "FastAPI"],
+    category: "AI/Security",
+    year: "2023",
+    status: "completed",
+    links: {
+      details: "#"
+    }
   },
   {
-    type: "largeWithNoise",
     title: "UChange Community Platform",
-    content:
-      "Co-founded UChange, a student-driven initiative focused on solving campus challenges through innovation, design thinking, and community collaboration, fostering a culture of empowerment and impact.",
+    shortDescription: "Student-driven innovation platform for campus challenges",
+    fullDescription: "Co-founded UChange, a comprehensive student-driven initiative and platform focused on solving campus challenges through innovation, design thinking, and community collaboration. The platform facilitates project collaboration, mentorship matching, and resource sharing, fostering a culture of empowerment and meaningful impact across universities.",
     image: "/uchange.png",
-    cta: "See Project",
+    technologies: ["Vue.js", "Firebase", "Node.js", "Socket.io", "Figma"],
+    category: "Community",
+    year: "2022",
+    status: "completed",
+    links: {
+      demo: "#",
+      details: "#"
+    }
+  },
+  {
+    title: "Real-Time Analytics Dashboard",
+    shortDescription: "Interactive dashboard for business intelligence and data visualization",
+    fullDescription: "Created a comprehensive real-time analytics dashboard that processes and visualizes complex business data streams. Features interactive charts, customizable widgets, real-time notifications, and automated reporting capabilities to help businesses make data-driven decisions.",
+    image: "/hero.png", // Using available image as placeholder
+    technologies: ["React", "D3.js", "WebSockets", "PostgreSQL", "Docker"],
+    category: "Data Analytics",
+    year: "2023",
+    status: "in-progress",
+    links: {
+      github: "#"
+    }
   },
 ];
 
@@ -85,72 +121,30 @@ export const FeatureSection: React.FC = () => {
 
         {/* Projects Grid */}
         <motion.div 
-          className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-        >
-          {projects.map((project, index) => {
-            switch (project.type) {
-              case "large":
-                return (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 50 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.2 }}
-                  >
-                    <WobbleCard containerClassName="col-span-1 lg:col-span-2 xl:col-span-2 bg-white/70 backdrop-blur-sm border border-white/50 hover:shadow-2xl hover:bg-white/80 transition-all duration-500 min-h-[300px]">
-                    <LargeWobbleCard
-                      title={project.title}
-                      content={project.content}
-                      image={project.image}
-                      cta={project.cta}
-                    />
-                    </WobbleCard>
-                  </motion.div>
-                );
-              case "small":
-                return (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 50 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.2 }}
-                  >
-                    <WobbleCard containerClassName="col-span-1 bg-white/70 backdrop-blur-sm border border-white/50 hover:shadow-2xl hover:bg-white/80 transition-all duration-500 min-h-[300px]">
-                    <SmallWobbleCard
-                      title={project.title}
-                      content={project.content}
-                      cta={project.cta}
-                    />
-                    </WobbleCard>
-                  </motion.div>
-                );
-              case "largeWithNoise":
-                return (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 50 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.2 }}
-                  >
-                    <WobbleCard
-                      containerClassName="col-span-1 lg:col-span-2 xl:col-span-3 bg-gradient-to-br from-slate-800 via-blue-900 to-purple-900 hover:shadow-2xl hover:from-slate-700 hover:via-blue-800 hover:to-purple-800 transition-all duration-500 min-h-[300px]"
-                    >
-                    <LargeWobbleCardWithNoise
-                      title={project.title}
-                      content={project.content}
-                      image={project.image}
-                      cta={project.cta}
-                    />
-                    </WobbleCard>
-                  </motion.div>
-                );
-              default:
-                return null;
-            }
-          })}
+          {projects.map((project, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              className={index === 0 ? "md:col-span-2" : ""}
+            >
+              <ExpandableCard
+                title={project.title}
+                shortDescription={project.shortDescription}
+                fullDescription={project.fullDescription}
+                image={project.image}
+                technologies={project.technologies}
+                category={project.category}
+                year={project.year}
+                status={project.status}
+                links={project.links}
+              />
+            </motion.div>
+          ))}
         </motion.div>
         
         <motion.div 
