@@ -230,32 +230,3 @@ export const Navbar: React.FC = () => {
     </>
   );
 };
-
-            aria-label="Mobile Navigation Menu"
-          >
-            {links.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                className="hover:text-blue-500 transition"
-                onClick={() => setIsMenuOpen(false)}
-                aria-label={`Navigate to ${link.label}`}
-              >
-                {link.label}
-              </Link>
-            ))}
-            {/* Contact Me Button */}
-            <Link
-              href="/contact"
-              className="px-4 py-2 bg-gradient-to-r from-blue-500 to-pink-500 text-white rounded-lg shadow-lg hover:shadow-xl transition"
-              onClick={() => setIsMenuOpen(false)}
-              aria-label="Navigate to Contact Page"
-            >
-              Contact Me
-            </Link>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.nav>
-  );
-};
