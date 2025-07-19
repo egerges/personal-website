@@ -199,7 +199,6 @@ const PrivacyPolicy: React.FC = () => {
         >
           © {currentYear} Elio Gerges. All Rights Reserved.
         </motion.p>
-      </div>
     </main>
   );
 };
