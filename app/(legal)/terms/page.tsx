@@ -8,28 +8,7 @@ const TermsAndConditions: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <main className="min-h-screen relative overflow-hidden">
-      {/* Futuristic Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-purple-900 to-blue-900"></div>
-      
-      {/* Animated Tech Grid */}
-      <motion.div
-        className="absolute inset-0"
-        animate={{
-          backgroundPosition: ["0% 0%", "100% 100%"],
-        }}
-        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-        style={{
-          backgroundImage: `
-            linear-gradient(90deg, transparent 98%, rgba(139, 92, 246, 0.1) 100%),
-            linear-gradient(0deg, transparent 98%, rgba(139, 92, 246, 0.1) 100%)
-          `,
-          backgroundSize: "50px 50px",
-          opacity: 0.3,
-        }}
-      />
-
-      <div className="relative z-10 py-20 px-6 sm:px-12 lg:px-24 max-w-7xl mx-auto">
+    <main className="min-h-screen py-20 px-6 sm:px-12 lg:px-24 max-w-7xl mx-auto">
         {/* Hero Section */}
         <motion.div
           className="text-center mb-16"
