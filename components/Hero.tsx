@@ -185,18 +185,18 @@ const Hero: React.FC = () => {
               rotate: 2,
               transition: { duration: 0.3 }
             }}
-            className="relative w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-72 lg:h-72 xl:w-80 xl:h-80 mx-auto"
+            className="relative w-56 h-64 sm:w-64 sm:h-72 md:w-72 md:h-80 lg:w-80 lg:h-88 xl:w-88 xl:h-96 mx-auto"
           >
             <Image 
               src={"/hero.png"} 
               alt={"Elio Pic"} 
               fill
-              sizes="(max-width: 640px) 192px, (max-width: 768px) 224px, (max-width: 1024px) 256px, (max-width: 1280px) 288px, 320px"
-              className="object-cover drop-shadow-2xl rounded-2xl filter brightness-110 contrast-110"
+              sizes="(max-width: 640px) 224px, (max-width: 768px) 256px, (max-width: 1024px) 288px, (max-width: 1280px) 320px, 352px"
+              className="object-contain drop-shadow-2xl rounded-2xl filter brightness-110 contrast-110"
               priority
             />
             {/* Glow Effect Behind Image */}
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-pink-500/20 rounded-2xl blur-2xl -z-10 scale-110"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-pink-500/20 rounded-2xl blur-2xl -z-10 scale-125"></div>
           </motion.div>
         </motion.div>
       </motion.div>
