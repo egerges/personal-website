@@ -47,33 +47,45 @@ const projects: projects[] = [
 
 export const FeatureSection: React.FC = () => {
   return (
-    <section className="py-12">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="relative w-full py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50">
+      {/* Subtle Background Pattern */}
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute inset-0" style={{
+          backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(99, 102, 241, 0.15) 1px, transparent 0)',
+          backgroundSize: '20px 20px'
+        }} />
+      </div>
+      
+      {/* Elegant Gradient Overlays */}
+      <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-white/80 to-transparent" />
+      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-white/80 to-transparent" />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="max-w-5xl mx-auto py-16 px-6 text-center"
+          className="text-center mb-16 sm:mb-20"
       >
-        <h1 className="text-3xl sm:text-4xl lg:text-6xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-[var(--blue-primary)] via-purple-500 to-[var(--pink-primary)] drop-shadow-2xl">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-slate-900 via-blue-900 to-purple-900 mb-6">
           <TextGeneratedEffect words="Crafting Impactful Solutions."/>
         </h1>
         <motion.p 
-          className="mt-6 text-base sm:text-lg lg:text-xl text-[var(--color-gray-darker)] max-w-3xl mx-auto"
+          className="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
         >
-            Every project is a story, and every story leaves an impact. Here are the solutions
-            I’ve crafted—each one blending creativity, technical expertise, and a drive to deliver
-            meaningful results.
+          Every project is a story, and every story leaves an impact. Here are the solutions
+          I've crafted—each one blending creativity, technical expertise, and a drive to deliver
+          meaningful results.
         </motion.p>
       </motion.div>
 
         {/* Projects Grid */}
         <motion.div 
-          className="grid grid-cols-1 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.5 }}
@@ -88,7 +100,7 @@ export const FeatureSection: React.FC = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: index * 0.2 }}
                   >
-                    <WobbleCard containerClassName="col-span-1 lg:col-span-2 hover:shadow-2xl transition-all duration-300">
+                    <WobbleCard containerClassName="col-span-1 lg:col-span-2 bg-white/70 backdrop-blur-sm border border-white/50 hover:shadow-2xl hover:bg-white/80 transition-all duration-500">
                     <LargeWobbleCard
                       title={project.title}
                       content={project.content}
@@ -106,7 +118,7 @@ export const FeatureSection: React.FC = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: index * 0.2 }}
                   >
-                    <WobbleCard containerClassName="hover:shadow-2xl transition-all duration-300">
+                    <WobbleCard containerClassName="bg-white/70 backdrop-blur-sm border border-white/50 hover:shadow-2xl hover:bg-white/80 transition-all duration-500">
                     <SmallWobbleCard
                       title={project.title}
                       content={project.content}
@@ -124,7 +136,7 @@ export const FeatureSection: React.FC = () => {
                     transition={{ duration: 0.6, delay: index * 0.2 }}
                   >
                     <WobbleCard
-                      containerClassName="col-span-1 lg:col-span-3 bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 hover:shadow-2xl transition-all duration-300"
+                      containerClassName="col-span-1 lg:col-span-3 bg-gradient-to-br from-slate-800 via-blue-900 to-purple-900 hover:shadow-2xl hover:from-slate-700 hover:via-blue-800 hover:to-purple-800 transition-all duration-500"
                     >
                     <LargeWobbleCardWithNoise
                       title={project.title}
@@ -142,12 +154,12 @@ export const FeatureSection: React.FC = () => {
         </motion.div>
         
         <motion.div 
-          className="flex justify-center flex-col items-center gap-6 mt-12"
+          className="flex flex-col items-center gap-6 mt-16 sm:mt-20 text-center"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
         >
-          <p className="mt-4 italic text-[var(--color-gray-darker)] text-center text-lg max-w-2xl">
+          <p className="text-lg sm:text-xl text-slate-600 leading-relaxed max-w-2xl">
             Want to see how these solutions came to life?
             <br />
             Dive into the details and discover the stories behind the code.
@@ -157,7 +169,7 @@ export const FeatureSection: React.FC = () => {
             whileTap={{ scale: 0.95 }}
           >
             <Button
-              text="Start a conversation"
+              text="Start a Conversation"
               variant="secondary"
               link="/contact"
             />
