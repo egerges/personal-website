@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { ExternalLinkIcon, CodeBracketIcon, EyeIcon } from "@heroicons/react/24/outline";
+import { ArrowTopRightOnSquareIcon, CodeBracketIcon, EyeIcon } from "@heroicons/react/24/outline";
 
 interface ExpandableCardProps {
   title: string;
@@ -250,7 +250,7 @@ export const ExpandableCard: React.FC<ExpandableCardProps> = ({
                           whileTap={{ scale: 0.95 }}
                           onClick={(e) => e.stopPropagation()}
                         >
-                          <ExternalLinkIcon className="w-3 h-3" />
+                          <ArrowTopRightOnSquareIcon className="w-3 h-3" />
                           Details
                         </motion.a>
                       )}
