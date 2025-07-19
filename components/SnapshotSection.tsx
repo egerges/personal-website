@@ -2,7 +2,14 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { AcademicCapIcon, BriefcaseIcon, RocketLaunchIcon, SparklesIcon } from "@heroicons/react/24/solid";
+import { 
+  AcademicCapIcon, 
+  BriefcaseIcon, 
+  RocketLaunchIcon, 
+  SparklesIcon,
+  CalendarIcon,
+  CheckBadgeIcon
+} from "@heroicons/react/24/solid";
 
 import { TextGeneratedEffect } from "@components/TextGeneratedEffect";
 import Button from "@components/Button";
@@ -121,105 +128,168 @@ const milestones: Milestone[] = [
 
 const SnapshotTimeline: React.FC = () => {
   return (
-    <div className="relative w-full px-6">
+    <section className="relative w-full overflow-hidden">
       {/* Header Section */}
       <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="max-w-5xl mx-auto py-12 px-6"
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8 text-center"
       >
-        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-[var(--blue-primary)] to-[var(--pink-primary)]">
-          <TextGeneratedEffect words="Milestones in the Making..."/>
+        <h1 className="text-3xl sm:text-4xl lg:text-6xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-[var(--blue-primary)] via-purple-500 to-[var(--pink-primary)] drop-shadow-2xl">
+          <TextGeneratedEffect words="Journey Through Time"/>
         </h1>
-        <p className="mt-4 text-base sm:text-lg lg:text-xl text-[var(--color-gray-darker)]">
-        From curious beginnings to crafting innovative solutions, this timeline showcases 
-        the key moments that shaped my journey as a developer and entrepreneur. Dive into 
-        the highlights that define where I&apos;ve been and where I&apos;m headed.
+        <motion.p 
+          className="mt-6 text-base sm:text-lg lg:text-xl text-[var(--color-gray-darker)] max-w-4xl mx-auto leading-relaxed"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+        >
+          From curious beginnings to crafting innovative solutions, this timeline showcases 
+          the key moments that shaped my journey as a developer and entrepreneur.
         </p>
       </motion.div>
 
       {/* Timeline Section */}
-      <div className="relative max-w-5xl mx-auto flex flex-col px-6">
-        {/* Futuristic Vertical Line */}
-        <div className="absolute left-[60px] h-full w-0.5 bg-gradient-to-b from-blue-500 via-purple-500 via-pink-500 to-transparent">
-          <div className="absolute inset-0 w-1 bg-gradient-to-b from-blue-400/50 via-purple-400/50 via-pink-400/50 to-transparent blur-sm"></div>
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Enhanced Timeline Container */}
+        <div className="relative">
+          {/* Main Timeline Line - Hidden on mobile, visible on larger screens */}
+          <div className="absolute left-8 lg:left-1/2 transform lg:-translate-x-0.5 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500 rounded-full hidden sm:block">
+            <div className="absolute inset-0 w-3 bg-gradient-to-b from-blue-400/30 via-purple-400/30 to-pink-400/30 blur-md transform -translate-x-1"></div>
+          </div>
         </div>
 
-        {milestones.map((milestone, index) => (
-          <motion.div
-            key={index}
-            className="relative flex items-center gap-8 mb-16"
-            initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: index * 0.2 }}
-          >
-            {/* Icon */}
-            <div className="flex-shrink-0 relative">
-              {/* Pulsing Ring */}
+          {/* Timeline Items */}
+          <div className="space-y-8 lg:space-y-16">
+            {milestones.map((milestone, index) => (
               <motion.div
-                className="absolute inset-0 w-20 h-20 rounded-full border-2 border-blue-400/30"
-                animate={{
-                  scale: [1, 1.2, 1],
-                  opacity: [0.3, 0.7, 0.3],
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  delay: index * 0.2,
-                }}
-                aria-hidden="true"
-              />
-              <div className="relative flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 p-4 rounded-full shadow-2xl border border-white/10 backdrop-blur-sm">
-                {/* Glow effect */}
-                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500/20 to-pink-500/20 blur-lg"></div>
-                {milestone.icon}
-              </div>
-            </div>
+                key={index}
+                className={`relative flex flex-col lg:flex-row items-start lg:items-center gap-6 lg:gap-12 ${
+                  index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'
+                }`}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+              >
+                {/* Timeline Node */}
+                <div className="relative flex-shrink-0 z-10">
+                  {/* Pulsing Animation */}
+                  <motion.div
+                    className="absolute inset-0 w-16 h-16 lg:w-20 lg:h-20 rounded-full border-2 border-blue-400/20"
+                    animate={{
+                      scale: [1, 1.3, 1],
+                      opacity: [0.2, 0.6, 0.2],
+                    }}
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity,
+                      delay: index * 0.3,
+                    }}
+                  />
+                  
+                  {/* Icon Container */}
+                  <div className="relative w-16 h-16 lg:w-20 lg:h-20 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl rounded-full border border-white/20 shadow-2xl flex items-center justify-center group">
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 blur-lg group-hover:blur-xl transition-all duration-300"></div>
+                    <div className="relative text-white transform group-hover:scale-110 transition-transform duration-300">
+                      {milestone.icon}
+                    </div>
+                  </div>
+                </div>
 
-            {/* Milestone Content */}
-            <motion.div 
-              className="flex flex-col sm:flex-row items-start sm:items-center gap-6 bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 shadow-xl"
-              whileHover={{
-                scale: 1.02,
-                backgroundColor: "rgba(255, 255, 255, 0.08)",
-                transition: { duration: 0.3 }
-              }}
-            >
-              <div className="text-gray-800 text-sm text-left h-[100%] sm:max-w-[150px] bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent font-semibold">
-                {milestone.year}
-                <h3 className="text-gray-900 text-lg font-bold mt-2 bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">{milestone.title}</h3>
-              </div>
-              <div>
-                <p className="text-gray-700 text-base text-start font-medium">{milestone.description}</p>
-                {milestone.achievements.length > 0 && (
-                  <ul className="text-gray-600 text-sm mt-3 space-y-1">
-                    {milestone.achievements.map((achievement, index) => (
-                      <li key={index} className="flex items-center gap-2">
-                        <span className="w-1.5 h-1.5 bg-gradient-to-r from-blue-500 to-pink-500 rounded-full"></span>
-                        <span>{achievement}</span>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </div>
-            </motion.div>
+                {/* Content Card */}
+                <motion.div 
+                  className={`flex-1 bg-white/8 backdrop-blur-xl rounded-3xl p-6 lg:p-8 border border-white/10 shadow-2xl relative overflow-hidden group ${
+                    index % 2 === 0 ? 'lg:mr-8' : 'lg:ml-8'
+                  }`}
+                  whileHover={{
+                    scale: 1.02,
+                    backgroundColor: "rgba(255, 255, 255, 0.12)",
+                    transition: { duration: 0.3 }
+                  }}
+                >
+                  {/* Gradient Background Effect */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-purple-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl"></div>
+                  
+                  {/* Year Badge */}
+                  <div className="flex items-center gap-2 mb-4">
+                    <CalendarIcon className="w-5 h-5 text-blue-400" />
+                    <span className="text-sm font-medium bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                      {milestone.year}
+                    </span>
+                  </div>
+                  
+                  {/* Title */}
+                  <h3 className="text-xl lg:text-2xl font-bold text-white mb-3 group-hover:text-blue-100 transition-colors duration-300">
+                    {milestone.title}
+                  </h3>
+                  
+                  {/* Description */}
+                  <p className="text-gray-300 text-base lg:text-lg leading-relaxed mb-4">
+                    {milestone.description}
+                  </p>
+                  
+                  {/* Details */}
+                  <p className="text-gray-400 text-sm lg:text-base leading-relaxed mb-6">
+                    {milestone.details}
+                  </p>
+                  
+                  {/* Achievements */}
+                  {milestone.achievements.length > 0 && (
+                    <div className="space-y-3">
+                      <h4 className="text-sm font-semibold text-blue-300 flex items-center gap-2">
+                        <CheckBadgeIcon className="w-4 h-4" />
+                        Key Achievements
+                      </h4>
+                      <ul className="space-y-2">
+                        {milestone.achievements.map((achievement, achievementIndex) => (
+                          <motion.li 
+                            key={achievementIndex} 
+                            className="flex items-start gap-3 text-gray-300 text-sm lg:text-base"
+                            initial={{ opacity: 0, x: -10 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ delay: achievementIndex * 0.1 }}
+                          >
+                            <div className="w-2 h-2 bg-gradient-to-r from-blue-400 to-pink-400 rounded-full mt-2 flex-shrink-0"></div>
+                            <span className="leading-relaxed">{achievement}</span>
+                          </motion.li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </motion.div>
+              </motion.div>
+            ))}
           </motion.div>
-        ))}
+        </div>
       </div>
-      <div className="flex justify-center flex-col items-center gap-4 mt-6">
-        <p className="mt-2 italic text-[var(--color-gray-darker)] text-center">
-          Have a story to add?
-          <br />
-          Explore the journey and uncover the innovations behind the code.
-        </p>
-        <Button
-          text="Let’s create something together"
-          variant="secondary"
-          link="/contact" />
+      
+      {/* Call to Action */}
+      <motion.div 
+        className="flex justify-center flex-col items-center gap-6 mt-16 px-4 sm:px-6 lg:px-8"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+      >
+        <div className="text-center max-w-2xl">
+          <p className="text-lg italic text-[var(--color-gray-darker)] leading-relaxed">
+            Have a story to add? Let's collaborate and create the next milestone together.
+          </p>
+        </div>
+        <motion.div
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          <Button
+            text="Let's create something together"
+            variant="secondary"
+            link="/contact" 
+          />
+        </motion.div>
       </div>
-    </div>
+    </section>
   );
 };
 
