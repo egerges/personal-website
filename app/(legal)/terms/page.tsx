@@ -53,7 +53,7 @@ const TermsAndConditions: React.FC = () => {
         
         <div className="text-gray-800 space-y-8">
           <p>
-            Welcome to the personal portfolio website of Elio Gerges ("the Website"). By accessing or using this Website, you agree to be bound by these Terms and Conditions. If you do not agree, please refrain from using the Website.
+            Welcome to the personal portfolio website of Elio Gerges (&quot;the Website&quot;). By accessing or using this Website, you agree to be bound by these Terms and Conditions. If you do not agree, please refrain from using the Website.
           </p>
 
           {/* Section 1 */}
@@ -130,7 +130,7 @@ const TermsAndConditions: React.FC = () => {
               Disclaimer of Warranties
             </h2>
             <h3 className="text-xl font-semibold mt-6 mb-3 text-pink-300">4.1 "As-Is" Basis</h3>
-            <p>This Website is provided on an &ldquo;as-is&rdquo; and &ldquo;as-available&rdquo; basis. Elio Gerges makes no representations or warranties of any kind regarding the Website or its content.</p>
+            <p>This Website is provided on an &quot;as-is&quot; and &quot;as-available&quot; basis. Elio Gerges makes no representations or warranties of any kind regarding the Website or its content.</p>
 
             <h3 className="text-xl font-semibold mt-6 mb-3 text-pink-300">4.2 No Guarantee</h3>
             <p>While efforts are made to ensure the accuracy and reliability of the content, no guarantees are provided regarding the completeness, accuracy, or suitability of the information.</p>
@@ -185,7 +185,7 @@ const TermsAndConditions: React.FC = () => {
 
           <section aria-labelledby="section-12-title">
             <h2 id="section-12-title" className="text-xl font-semibold mt-8 text-blue-400">12. Changes to Terms and Conditions</h2>
-            <p>Elio Gerges may update these Terms and Conditions periodically. Changes will be posted with a new "Effective Date," and continued use of the Website constitutes acceptance of the updated Terms.</p>
+            <p>Elio Gerges may update these Terms and Conditions periodically. Changes will be posted with a new &quot;Effective Date,&quot; and continued use of the Website constitutes acceptance of the updated Terms.</p>
           </section>
 
           <section aria-labelledby="section-13-title">
