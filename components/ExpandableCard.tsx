@@ -94,65 +94,12 @@ export const ExpandableCard: React.FC<ExpandableCardProps> = ({
           transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
         />
 
-        {/* Circuit Pattern Overlay */}
-        <motion.div
-          className="absolute inset-0 opacity-20"
-          style={{
-            backgroundImage: `
-              linear-gradient(90deg, transparent 95%, rgba(0, 212, 255, 0.3) 96%, transparent 97%),
-              linear-gradient(0deg, transparent 95%, rgba(0, 212, 255, 0.3) 96%, transparent 97%)
-            `,
-            backgroundSize: "30px 30px",
-          }}
-          animate={{
-            backgroundPosition: isHovered ? ["0% 0%", "100% 100%"] : ["0% 0%"],
-          }}
-          transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-        />
 
-        {/* Holographic Glass Layer */}
-        <div
-          className="absolute inset-0 rounded-3xl"
-          style={{
-            background: `
-              linear-gradient(135deg, 
-                rgba(255, 255, 255, 0.1) 0%,
-                rgba(255, 255, 255, 0.05) 50%,
-                rgba(0, 212, 255, 0.08) 100%
-              )
-            `,
-            backdropFilter: "blur(20px) saturate(180%)",
-            WebkitBackdropFilter: "blur(20px) saturate(180%)",
-          }}
-        />
 
         {/* Neon Border Animation */}
-        <motion.div
-          className="absolute inset-0 rounded-3xl"
-          style={{
-            background: `
-              linear-gradient(45deg, 
-                transparent 30%, 
-                rgba(0, 212, 255, 0.4) 50%, 
-                transparent 70%
-              )
-            `,
-            padding: "1px",
-          }}
-          animate={{
-            rotate: isHovered ? [0, 360] : 0,
-            opacity: isHovered ? [0.3, 0.8, 0.3] : 0.3,
-          }}
-          transition={{ 
-            rotate: { duration: 8, repeat: Infinity, ease: "linear" },
-            opacity: { duration: 2, repeat: Infinity, ease: "easeInOut" }
-          }}
-        >
-          <div className="w-full h-full rounded-3xl bg-white/80 backdrop-blur-xl" />
-        </motion.div>
 
         {/* Main Content */}
-        <div className="relative z-10">
+        <div className="relative z-10 bg-white/80 backdrop-blur-xl rounded-3xl"
           {/* Image Section with Holographic Effect */}
           <div className="relative h-48 md:h-56 overflow-hidden rounded-t-3xl">
             <Image
