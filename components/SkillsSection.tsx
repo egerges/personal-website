@@ -110,8 +110,8 @@ export const SkillsSection: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            Behind every great project is a well-equipped toolbox. Here’s a look at the skills
-            and technologies I’ve honed to turn ideas into functional, impactful solutions.
+            Behind every successful consultation is a comprehensive toolkit. Here&apos;s a look at the technologies
+            and methodologies I leverage to deliver strategic, impactful solutions for my clients.
           </motion.p>
         </motion.div>
 

@@ -128,7 +128,7 @@ const Hero: React.FC = () => {
           className="flex-1 text-center lg:text-left relative z-10 order-2 lg:order-1 max-w-none lg:max-w-2xl"
         >
           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-[var(--blue-primary)] via-purple-500 to-[var(--pink-primary)] drop-shadow-2xl leading-tight">
-            <TextGeneratedEffect words="Hey, I'm Elio! \n I turn code into Experiences."/>
+            <TextGeneratedEffect words="Hey, I'm Elio! \n I turn Ideas into Strategic Solutions."/>
           </h1>
           <motion.p 
             className="mt-4 sm:mt-6 text-sm sm:text-base lg:text-lg xl:text-xl text-gray-700 backdrop-blur-sm leading-relaxed"
@@ -136,9 +136,8 @@ const Hero: React.FC = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            A Software Engineer exploring the realms of full-stack
-            development and crafting user-focused applications with a touch of
-            innovation.
+            A Technology Consultant at XP3R, bridging the gap between complex technical challenges
+            and strategic business solutions with innovative thinking and proven expertise.
           </motion.p>
           <motion.p 
             className="mt-2 sm:mt-3 text-xs sm:text-sm italic text-gray-600 leading-relaxed"
@@ -146,8 +145,8 @@ const Hero: React.FC = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.8 }}
           >
-            Fueled by curiosity, inspired by challenges, and guided by the desire
-            to make technology more accessible.
+            Empowering organizations to leverage technology strategically, optimize processes,
+            and drive digital transformation with tailored consulting solutions.
           </motion.p>
 
           {/* Buttons */}

@@ -11,11 +11,11 @@ import { Suspense } from "react";
 import Loader from "@/components/Loader";
 
 export const metadata: Metadata = {
-  title: "Elio Gerges - Software Engineer",
+  title: "Elio Gerges - Technology Consultant",
   description: `Hey, I'm Elio! I turn code into Experiences.
                 Fueled by curiosity, inspired by challenges, and guided by the desire
                 to make technology more accessible.
-                A Software Engineer exploring the realms of full-stack development and crafting user-focused applications with a touch of innovation.`,
+                A Technology Consultant at XP3R exploring strategic solutions and crafting business-focused innovations.`,
 };
 
 export default function RootLayout({

@@ -103,9 +103,9 @@ export const FeatureSection: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            Every project is a story, and every story leaves an impact. Here are the solutions
-            I&apos;ve crafted—each one blending creativity, technical expertise, and a drive to deliver
-            meaningful results.
+            Every client engagement tells a story of transformation. Here are the strategic solutions
+            I&apos;ve delivered—each one combining technical expertise, business acumen, and innovative
+            thinking to drive meaningful results.
           </motion.p>
         </motion.div>
 

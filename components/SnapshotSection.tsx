@@ -15,11 +15,18 @@ import Button from "@components/Button";
 const SnapshotSection: React.FC = () => {
   const milestones = [
     {
-      year: "2023-Present",
-      title: "Full-Stack Developer at Proof of ID",
-      description: "Delivered SaaS solutions with a focus on efficiency and innovation.",
+      year: "2025-Present",
+      title: "Technology Consultant at XP3R",
+      description: "Providing strategic technology consulting and digital transformation solutions to drive business growth.",
       type: "work",
       status: "active"
+    },
+    {
+      year: "2023-2024",
+      title: "Full-Stack Developer at Proof of ID",
+      description: "Delivered enterprise SaaS solutions with a focus on efficiency and innovation.",
+      type: "work",
+      status: "completed"
     },
     {
       year: "2023",
