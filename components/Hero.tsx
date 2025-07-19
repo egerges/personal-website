@@ -10,7 +10,7 @@ import { TextGeneratedEffect } from "@components/TextGeneratedEffect";
 const Hero: React.FC = () => {
   return (
     <section
-      className="relative flex items-center justify-center min-h-screen px-4 md:px-8 overflow-hidden"
+      className="relative flex items-center justify-center min-h-screen px-4 sm:px-6 lg:px-8 overflow-hidden"
       aria-label="Hero Section"
     >
       {/* <CustomCursor /> */}
@@ -108,7 +108,7 @@ const Hero: React.FC = () => {
 
       {/* Glass Effect Card */}
       <motion.div
-        className="relative z-10 w-full max-w-xl p-6 md:p-12 bg-white/[0.05] backdrop-blur-xl border border-white/[0.1] rounded-3xl shadow-2xl md:max-w-5xl lg:max-w-6xl flex flex-col md:flex-row align-middle justify-center items-center before:absolute before:inset-0 before:rounded-3xl before:bg-gradient-to-br before:from-white/10 before:via-transparent before:to-transparent before:pointer-events-none"
+        className="relative z-10 w-full max-w-sm sm:max-w-lg md:max-w-4xl lg:max-w-6xl xl:max-w-7xl p-4 sm:p-6 lg:p-8 xl:p-12 bg-white/[0.05] backdrop-blur-xl border border-white/[0.1] rounded-2xl sm:rounded-3xl shadow-2xl flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-12 before:absolute before:inset-0 before:rounded-2xl sm:before:rounded-3xl before:bg-gradient-to-br before:from-white/10 before:via-transparent before:to-transparent before:pointer-events-none"
         initial={{ opacity: 0, y: 50, scale: 0.9 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         transition={{ duration: 1, ease: "easeOut" }}
@@ -118,19 +118,20 @@ const Hero: React.FC = () => {
         }}
       >
         {/* Glowing Border Effect */}
-        <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 blur-xl -z-10"></div>
+        <div className="absolute inset-0 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 blur-xl -z-10"></div>
         
+        {/* Content Section */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-center relative z-10"
+          className="flex-1 text-center lg:text-left relative z-10 order-2 lg:order-1 max-w-none lg:max-w-2xl"
         >
-          <h1 className="text-3xl sm:text-4xl lg:text-6xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-[var(--blue-primary)] via-purple-500 to-[var(--pink-primary)] drop-shadow-2xl">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-[var(--blue-primary)] via-purple-500 to-[var(--pink-primary)] drop-shadow-2xl leading-tight">
             <TextGeneratedEffect words="Hey, I'm Elio! \n I turn code into Experiences."/>
           </h1>
           <motion.p 
-            className="mt-6 text-base sm:text-lg lg:text-xl text-gray-700 backdrop-blur-sm"
+            className="mt-4 sm:mt-6 text-sm sm:text-base lg:text-lg xl:text-xl text-gray-700 backdrop-blur-sm leading-relaxed"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.6 }}
@@ -140,7 +141,7 @@ const Hero: React.FC = () => {
             innovation.
           </motion.p>
           <motion.p 
-            className="mt-3 text-sm italic text-gray-600"
+            className="mt-2 sm:mt-3 text-xs sm:text-sm italic text-gray-600 leading-relaxed"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.8 }}
@@ -151,7 +152,7 @@ const Hero: React.FC = () => {
 
           {/* Buttons */}
           <motion.div 
-            className="flex justify-center gap-6 mt-8"
+            className="flex justify-center lg:justify-start gap-4 sm:gap-6 mt-6 sm:mt-8"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1 }}
@@ -163,15 +164,16 @@ const Hero: React.FC = () => {
           </motion.div>
         </motion.div>
         
+        {/* Image Section */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="p-8 md:p-12 relative"
+          className="flex-shrink-0 relative order-1 lg:order-2 p-4 sm:p-6 lg:p-8 xl:p-12"
         >
           {/* Floating Ring Around Image */}
           <motion.div
-            className="absolute inset-0 rounded-full border-2 border-gradient-to-r from-blue-400/30 via-purple-400/30 to-pink-400/30"
+            className="absolute inset-2 sm:inset-4 rounded-full border-2 border-gradient-to-r from-blue-400/30 via-purple-400/30 to-pink-400/30"
             animate={{ rotate: 360 }}
             transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
             aria-hidden="true"
@@ -183,14 +185,15 @@ const Hero: React.FC = () => {
               rotate: 2,
               transition: { duration: 0.3 }
             }}
-            className="relative"
+            className="relative w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-72 lg:h-72 xl:w-80 xl:h-80 mx-auto"
           >
             <Image 
               src={"/hero.png"} 
               alt={"Elio Pic"} 
-              height={1080} 
-              width={1080} 
-              className="drop-shadow-2xl rounded-2xl filter brightness-110 contrast-110"
+              fill
+              sizes="(max-width: 640px) 192px, (max-width: 768px) 224px, (max-width: 1024px) 256px, (max-width: 1280px) 288px, 320px"
+              className="object-cover drop-shadow-2xl rounded-2xl filter brightness-110 contrast-110"
+              priority
             />
             {/* Glow Effect Behind Image */}
             <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-pink-500/20 rounded-2xl blur-2xl -z-10 scale-110"></div>
