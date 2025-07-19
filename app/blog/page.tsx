@@ -79,13 +79,19 @@ export default function BlogPage() {
 
   if (!posts.length) {
     return (
-      <section className="py-20 text-center">
-        <h1 className="text-3xl font-extrabold text-gray-800">Insights and Stories</h1>
-        <p className="mt-2 text-gray-600">
+      <section className="py-20 text-center min-h-screen">
+        <div className="relative bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-12 max-w-4xl mx-auto shadow-2xl">
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 rounded-3xl blur-xl -z-10"></div>
+          
+          <h1 className="text-4xl sm:text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 mb-6">
+            Insights and Stories
+          </h1>
+          <p className="text-lg text-gray-700 mb-8">
           Exploring technology, design, and innovation one post at a time.
         </p>
         <BlogSearchBar searchQuery={searchQuery} onSearchChange={setSearchQuery} suggestions={suggestions} />
-        <p className="mt-10 text-gray-500">No blog posts available yet. Check back soon!</p>
+          <p className="mt-10 text-gray-600">No blog posts available yet. Check back soon!</p>
+        </div>
       </section>
     );
   }
@@ -111,61 +117,82 @@ export default function BlogPage() {
   );
 
   return (
-    <section className="min-h-screen mt-16">
+    <section className="min-h-screen mt-16 px-4">
       {/* Header Section */}
-      <motion.section
+      <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="py-10 text-center"
+          className="py-16 text-center"
         >
+          <div className="relative bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-12 max-w-6xl mx-auto shadow-2xl mb-12">
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 rounded-3xl blur-xl -z-10"></div>
+            
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-[var(--blue-primary)] to-[var(--pink-primary)]">
             <TextGeneratedEffect words="Insights and Stories..."/>
           </h1>
-          <p className="mt-4 text-base sm:text-lg lg:text-xl text-[var(--color-gray-darker)]">
-          Exploring technology, design, and innovation one post at a time.
+            <p className="mt-6 text-lg sm:text-xl text-gray-700 leading-relaxed">
+              Exploring technology, design, and innovation one post at a time.
           </p>
           <BlogSearchBar 
             searchQuery={searchQuery} 
             onSearchChange={setSearchQuery}
             suggestions={suggestions}
           />
-      </motion.section>
+          </div>
+      </motion.div>
 
       {/* Featured Posts */}
-      <motion.section
+      <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className="my-10 px-4 max-w-7xl mx-auto">
-        <h2 className="text-2xl font-semibold text-gray-800 mb-6">Featured Posts</h2>
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="relative bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-8 shadow-2xl mb-8">
+          <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 via-blue-500/10 to-purple-500/10 rounded-3xl blur-xl -z-10"></div>
+          
+          <h2 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-500 mb-8 text-center">
+            Featured Posts
+          </h2>
+          <div className="grid gap-8 md:grid-cols-2">
           {featuredPosts.length > 0 ? featuredPosts.map((post) => (
             <FeaturedPost key={post._id} post={post} />
-          )) : (<p className="text-gray-500">No featured posts available.</p>)}
+            )) : (
+              <div className="col-span-2 text-center py-12">
+                <p className="text-gray-600 text-lg">No featured posts available.</p>
+              </div>
+            )}
+          </div>
         </div>
-      </motion.section>
+      </motion.div>
 
       {/* Google Ad */}
       <GoogleAd adSlot="header-ad-slot" />
 
       {/* All Posts */}
-      <motion.section
+      <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
            className="my-10 px-4 max-w-7xl mx-auto">
-        <h2 className="text-2xl font-semibold text-gray-800 mb-6">All Posts</h2>
+        <div className="relative bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-8 shadow-2xl">
+          <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 via-pink-500/10 to-blue-500/10 rounded-3xl blur-xl -z-10"></div>
+          
+          <h2 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-500 mb-8 text-center">
+            All Posts
+          </h2>
         {filteredPosts.length === 0 ? (
           <NoResultsMessage />
         ) : (
-          <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {filteredPosts.map((post) => (
               <BlogCard key={post._id} post={post} />
             ))}
+            </div>
           </div>
         )}
-      </motion.section>
+        </div>
+      </motion.div>
 
       {/* Google Ad */}
       <GoogleAd adSlot="footer-ad-slot" />

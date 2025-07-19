@@ -131,70 +131,90 @@ export default async function BlogPostPage({
   };
 
   return (
-    <main className="w-screen">
+    <main className="w-screen px-4">
       {/* Inject structured data with dangerouslySetInnerHTML */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <article className="bg-white py-10 px-4 max-w-3xl mx-auto mt-16">
+      <article className="max-w-4xl mx-auto mt-20 mb-12">
+        <div className="relative bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-8 sm:p-12 shadow-2xl">
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 rounded-3xl blur-xl -z-10"></div>
+          
         {/* Header */}
-        <header className="mb-8">
+          <header className="mb-12 text-center">
           {post.mainImage && (
             <Image
               src={urlFor(post.mainImage).width(800).url()}
               alt={post.title}
-              className="w-full rounded-lg shadow-lg mb-6"
+              className="w-full rounded-2xl shadow-2xl mb-8 hover:scale-105 transition-transform duration-300"
               width={800}
               height={600}
             />
           )}
-          <h1 className="text-4xl font-bold text-gray-900">{post.title}</h1>
-          <p className="text-gray-600 text-sm mt-2">
-            Published on {new Date(post.publishedAt).toLocaleDateString()}
-          </p>
-          {/* Author info */}
-          {post.author && (
-            <div className="flex items-center mt-2">
-              {post.author.image && (
-                <Image
-
-                  src={urlFor(post.author.image).width(25).url()}
-                  alt={post.author.name || "Unknown"}
-                  className="w-[25px] h-[25px] rounded-full mr-2"
-                  width={25}
-                  height={25}
-                />
-              )}
-              <p className="text-gray-600 text-sm">
-                {post.author.name || "Unknown"}
-              </p>
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 mb-6 leading-tight">
+              {post.title}
+            </h1>
+            
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 text-gray-600">
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full bg-blue-400"></div>
+                <span className="text-sm font-medium">
+                  Published on {new Date(post.publishedAt).toLocaleDateString()}
+                </span>
+              </div>
             </div>
-          )}
+            
+            {/* Author info */}
+            {post.author && (
+              <div className="flex items-center justify-center gap-3 mt-6 p-4 bg-white/20 rounded-2xl backdrop-blur-sm border border-white/10">
+                {post.author.image && (
+                  <Image
+                    src={urlFor(post.author.image).width(40).url()}
+                    alt={post.author.name || "Unknown"}
+                    className="w-10 h-10 rounded-full border-2 border-white/30"
+                    width={40}
+                    height={40}
+                  />
+                )}
+                <div className="text-center">
+                  <p className="text-gray-700 font-medium">
+                    {post.author.name || "Unknown Author"}
+                  </p>
+                  <p className="text-xs text-gray-500">Author</p>
+                </div>
+              </div>
+            )}
+          </p>
+
         </header>
 
         {/* Main Content */}
-        {/* PortableTextRenderer is a client component */}
-        <section className="prose prose-lg max-w-none">
+          <section className="prose prose-lg max-w-none mb-12">
+            <div className="bg-white/20 rounded-2xl p-6 sm:p-8 backdrop-blur-sm border border-white/10">
           <PortableTextRenderer value={post.body} />
+            </div>
         </section>
 
         {/* Google Ads (client component) */}
-        <div className="my-8">
+          <div className="my-8 space-y-6">
           <GoogleAd adSlot="content-top-ad" />
-        </div>
-        <div className="my-8">
           <GoogleAd adSlot="content-bottom-ad" />
+        </div>
         </div>
       </article>
 
       {/* Related Posts (client component) */}
-      <section className="m-12">
-        <h2 className="text-2xl font-semibold text-gray-800 mb-4">
-          Related Posts
-        </h2>
+      <section className="max-w-7xl mx-auto px-4 mb-12">
+        <div className="relative bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-8 shadow-2xl">
+          <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 via-purple-500/10 to-pink-500/10 rounded-3xl blur-xl -z-10"></div>
+          
+          <h2 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-500 mb-8 text-center">
+            Related Posts
+          </h2>
         <RelatedPosts currentTags={post.categories || []} currentPostId={post._id} />
+        </div>
       </section>
     </main>
   );

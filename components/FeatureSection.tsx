@@ -104,7 +104,7 @@ export const FeatureSection: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
           >
             Every project is a story, and every story leaves an impact. Here are the solutions
-            I've crafted—each one blending creativity, technical expertise, and a drive to deliver
+            I&apos;ve crafted—each one blending creativity, technical expertise, and a drive to deliver
             meaningful results.
           </motion.p>
         </motion.div>

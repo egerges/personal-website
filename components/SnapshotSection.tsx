@@ -215,7 +215,7 @@ const SnapshotSection: React.FC = () => {
           <p className="text-lg sm:text-xl text-slate-600 leading-relaxed max-w-2xl">
             Ready to add the next chapter to this story?
             <br />
-            Let's collaborate and create something exceptional.
+            Let&apos;s collaborate and create something exceptional.
           </p>
           
           <motion.div

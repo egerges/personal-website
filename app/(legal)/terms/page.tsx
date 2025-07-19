@@ -130,7 +130,7 @@ const TermsAndConditions: React.FC = () => {
               Disclaimer of Warranties
             </h2>
             <h3 className="text-xl font-semibold mt-6 mb-3 text-pink-300">4.1 "As-Is" Basis</h3>
-            <p>This Website is provided on an "as-is" and "as-available" basis. Elio Gerges makes no representations or warranties of any kind regarding the Website or its content.</p>
+            <p>This Website is provided on an &ldquo;as-is&rdquo; and &ldquo;as-available&rdquo; basis. Elio Gerges makes no representations or warranties of any kind regarding the Website or its content.</p>
 
             <h3 className="text-xl font-semibold mt-6 mb-3 text-pink-300">4.2 No Guarantee</h3>
             <p>While efforts are made to ensure the accuracy and reliability of the content, no guarantees are provided regarding the completeness, accuracy, or suitability of the information.</p>

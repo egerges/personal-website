@@ -19,11 +19,13 @@ export const BlogCard: React.FC<{ post: Post }> = ({ post }) => {
   const authorName = post.author?.name || "Unknown Author";
 
   return (
-    <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow hover:shadow-lg transition-shadow p-4">
+    <div className="w-full max-w-sm bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 p-6 group">
+      <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
+      
       {/* Top row: Author avatar + info + timestamp */}
       <div className="flex items-center gap-2 mb-2">
         {/* Author avatar */}
-        <div className="w-10 h-10 rounded-full overflow-hidden">
+        <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-white/30">
           {post.author?.image ? (
             <Image
               src={urlFor(post.author.image).width(40).height(40).url()}
@@ -33,15 +35,15 @@ export const BlogCard: React.FC<{ post: Post }> = ({ post }) => {
               className="object-cover"
             />
           ) : (
-            <div className="bg-gray-300 w-full h-full flex items-center justify-center text-white text-sm">
+            <div className="bg-gradient-to-r from-blue-400 to-purple-400 w-full h-full flex items-center justify-center text-white text-sm font-bold">
               ?
             </div>
           )}
         </div>
         {/* Author name and "Posted X hours ago" - mock or from data */}
         <div className="flex flex-col">
-          <span className="text-sm font-semibold">{authorName}</span>
-          <span className="text-xs text-gray-400">
+          <span className="text-sm font-semibold text-gray-800">{authorName}</span>
+          <span className="text-xs text-gray-600">
             {/* Format publishedAt as "3 hours ago" or similar using dayjs/time libs */}
             {new Date(post.publishedAt).toLocaleDateString()}
           </span>
@@ -64,7 +66,7 @@ export const BlogCard: React.FC<{ post: Post }> = ({ post }) => {
       </div>
 
       {/* Text snippet */}
-      <p className="text-sm text-gray-700 line-clamp-1 mb-2">
+      <p className="text-sm text-gray-700 line-clamp-2 mb-4 leading-relaxed">
         {bodyText}
       </p>
 
@@ -73,21 +75,23 @@ export const BlogCard: React.FC<{ post: Post }> = ({ post }) => {
         <Link
           href={`/blog/${post.slug.current}`}
           aria-label={`Read more about ${post.title}`}
-          className="text-blue-500 text-sm font-semibold hover:underline"
+          className="text-blue-600 text-sm font-semibold hover:text-purple-600 transition-colors duration-300 relative group"
         >
           Read more
+          <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-600 to-purple-600 group-hover:w-full transition-all duration-300"></span>
         </Link>
       </div>
 
       {/* Image */}
-      <div key={post.mainImage.alt} className="relative overflow-hidden">
+      <div key={post.mainImage.alt} className="relative overflow-hidden rounded-xl">
         <Image
           src={urlFor(post.mainImage).width(350).height(150).url()}
           alt={post.mainImage.alt}
           width={350}
           height={150}
-          className="object-cover"
+          className="object-cover w-full h-32 transition-transform duration-300 group-hover:scale-110"
         />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
       </div>
     </div>
   );
