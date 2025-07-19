@@ -79,18 +79,14 @@ const SnapshotSection: React.FC = () => {
   };
 
   return (
-    <section className="relative w-full py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50">
-      {/* Subtle Background Pattern */}
-      <div className="absolute inset-0 opacity-30">
+    <section className="relative w-full py-16 sm:py-20 lg:py-24 bg-white">
+      {/* Subtle Texture */}
+      <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
-          backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(99, 102, 241, 0.15) 1px, transparent 0)',
-          backgroundSize: '20px 20px'
+          backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(71, 85, 105, 0.3) 1px, transparent 0)',
+          backgroundSize: '30px 30px'
         }} />
       </div>
-      
-      {/* Elegant Gradient Overlays */}
-      <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-white/80 to-transparent" />
-      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-white/80 to-transparent" />
 
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
