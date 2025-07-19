@@ -77,7 +77,6 @@ export const RelatedPosts: React.FC<{
     slidesToShow: 3,
     slidesToScroll: 1,
     currentSlide: 0,
-    slideCount: relatedPosts.length + 1,
     arrows: true,
     nextArrow: <ArrowRightIcon />,
     prevArrow: <ArrowLeftIcon />,
