@@ -87,23 +87,35 @@ export const SkillsSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-12 max-w-[100vw]" aria-labelledby="skills-section-title">
-      <div className="mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative w-full py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50 max-w-[100vw]" aria-labelledby="skills-section-title">
+      {/* Subtle Background Pattern */}
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute inset-0" style={{
+          backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(99, 102, 241, 0.15) 1px, transparent 0)',
+          backgroundSize: '20px 20px'
+        }} />
+      </div>
+      
+      {/* Elegant Gradient Overlays */}
+      <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-white/80 to-transparent" />
+      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-white/80 to-transparent" />
+
+      <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="max-w-5xl mx-auto py-16 text-center"
+          className="text-center mb-16 sm:mb-20"
         >
           <h1
             id="skills-section-title"
-            className="text-3xl sm:text-4xl lg:text-6xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-[var(--blue-primary)] via-purple-500 to-[var(--pink-primary)] drop-shadow-2xl"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-slate-900 via-blue-900 to-purple-900 mb-6"
           >
             <TextGeneratedEffect words="The Tools of My Trade." />
           </h1>
           <motion.p 
-            className="mt-6 text-base sm:text-lg lg:text-xl text-[var(--color-gray-darker)] max-w-3xl mx-auto"
+            className="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
@@ -120,23 +132,22 @@ export const SkillsSection: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.5 }}
           className="relative"
         >
-          {/* Background glow */}
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-purple-500/5 to-pink-500/5 rounded-3xl blur-xl"></div>
           <InfiniteMovingSkills skills={skills} direction="right" speed="fast" />
         </motion.div>
 
         {/* Buttons */}
         <motion.div 
-          className="flex justify-center flex-col items-center gap-6 mt-12"
+          className="flex flex-col items-center gap-6 mt-16 sm:mt-20 text-center"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
         >
-          <p className="mt-4 italic text-[var(--color-gray-darker)] text-center text-lg max-w-2xl">
+          <p className="text-lg sm:text-xl text-slate-600 leading-relaxed max-w-2xl">
             Curious about how these skills translate into results?
             <br />
             Let’s collaborate and build something incredible.
           </p>
+          
           <motion.div
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
