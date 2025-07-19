@@ -99,7 +99,7 @@ export const ExpandableCard: React.FC<ExpandableCardProps> = ({
         {/* Neon Border Animation */}
 
         {/* Main Content */}
-        <div className="relative z-10 bg-white/80 backdrop-blur-xl rounded-3xl"
+        <div className="relative z-10 bg-white/80 backdrop-blur-xl rounded-3xl">
           {/* Image Section with Holographic Effect */}
           <div className="relative h-48 md:h-56 overflow-hidden rounded-t-3xl">
             <Image
