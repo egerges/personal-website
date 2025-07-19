@@ -11,75 +11,292 @@ const SnapshotSection: React.FC = () => {
       year: "2023-Present",
       title: "Full-Stack Developer at Proof of ID",
       description: "Delivered SaaS solutions with a focus on efficiency and innovation.",
+      type: "work",
+      status: "active"
     },
     {
       year: "2023",
       title: "Completed Postgraduate Certificate in Web Design and Development",
       description: "Humber College, Toronto",
+      type: "education",
+      status: "completed"
     },
     {
       year: "2022", 
       title: "University Innovation Fellow at Stanford University",
       description: "Fostered innovation and entrepreneurship.",
+      type: "achievement",
+      status: "completed"
     },
     {
       year: "2021-2023",
       title: "Frontend Developer at BitsProof", 
       description: "Enhanced user interface designs and optimized task completion speeds.",
+      type: "work",
+      status: "completed"
     },
     {
       year: "2021",
       title: "Graduated from Saint Joseph University",
       description: "Earned a BA in Computer Science with a Minor in Business.",
+      type: "education",
+      status: "completed"
     },
   ];
 
+  const getTypeColor = (type: string) => {
+    switch (type) {
+      case "work":
+        return "from-blue-500 to-cyan-400";
+      case "education":
+        return "from-purple-500 to-pink-400";
+      case "achievement":
+        return "from-green-500 to-emerald-400";
+      default:
+        return "from-gray-500 to-slate-400";
+    }
+  };
+
+  const getTypeIcon = (type: string) => {
+    switch (type) {
+      case "work":
+        return "💼";
+      case "education":
+        return "🎓";
+      case "achievement":
+        return "🏆";
+      default:
+        return "⭐";
+    }
+  };
+
   return (
-    <section className="relative w-full overflow-hidden py-12">
-      <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8 text-center">
-        <h1 className="text-3xl sm:text-4xl lg:text-6xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 drop-shadow-2xl">
-          <TextGeneratedEffect words="Journey Through Time"/>
-        </h1>
-        <p className="mt-6 text-base sm:text-lg lg:text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
-          From curious beginnings to crafting innovative solutions, this timeline showcases 
-          the key moments that shaped my journey as a developer and entrepreneur.
-        </p>
+    <section className="relative w-full overflow-hidden py-20 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+      {/* Animated Background Grid */}
+      <div className="absolute inset-0 bg-grid-white/[0.02] bg-grid-small pointer-events-none" />
+      
+      {/* Floating Particles */}
+      <div className="absolute inset-0 overflow-hidden">
+        {Array.from({ length: 20 }).map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute w-1 h-1 bg-blue-400 rounded-full"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+            }}
+            animate={{
+              y: [0, -30, 0],
+              opacity: [0.3, 1, 0.3],
+              scale: [1, 1.5, 1],
+            }}
+            transition={{
+              duration: 3 + Math.random() * 2,
+              repeat: Infinity,
+              delay: Math.random() * 2,
+            }}
+          />
+        ))}
       </div>
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="space-y-8">
-          {milestones.map((milestone, index) => (
-            <motion.div
-              key={index}
-              className="bg-white bg-opacity-10 backdrop-blur-xl rounded-3xl p-6 lg:p-8 border border-white border-opacity-10 shadow-2xl"
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-            >
-              <div className="text-blue-400 text-sm font-medium mb-2">
-                {milestone.year}
-              </div>
-              <h3 className="text-xl lg:text-2xl font-bold text-white mb-3">
-                {milestone.title}
-              </h3>
-              <p className="text-gray-300 text-base lg:text-lg leading-relaxed">
-                {milestone.description}
-              </p>
-            </motion.div>
-          ))}
+      {/* Glowing Orbs */}
+      <motion.div
+        className="absolute top-20 left-20 w-64 h-64 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full blur-3xl"
+        animate={{
+          scale: [1, 1.2, 1],
+          opacity: [0.3, 0.6, 0.3],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+        }}
+      />
+      <motion.div
+        className="absolute bottom-20 right-20 w-48 h-48 bg-gradient-to-r from-pink-500/20 to-cyan-500/20 rounded-full blur-3xl"
+        animate={{
+          scale: [1.2, 1, 1.2],
+          opacity: [0.6, 0.3, 0.6],
+        }}
+        transition={{
+          duration: 6,
+          repeat: Infinity,
+        }}
+      />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-20"
+        >
+          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 drop-shadow-2xl mb-8">
+            <TextGeneratedEffect words="Neural Journey Timeline"/>
+          </h1>
+          <motion.p 
+            className="text-lg sm:text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5 }}
+          >
+            Mapping the synapses of innovation through time and space
+          </motion.p>
+        </motion.div>
+
+        {/* Timeline Container */}
+        <div className="relative">
+          {/* Central Timeline Beam */}
+          <motion.div
+            className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-gradient-to-b from-blue-400 via-purple-400 to-pink-400 shadow-lg shadow-blue-500/50"
+            style={{ height: "100%" }}
+            initial={{ scaleY: 0 }}
+            animate={{ scaleY: 1 }}
+            transition={{ duration: 2, ease: "easeOut" }}
+          />
+
+          {/* Milestones */}
+          <div className="space-y-24">
+            {milestones.map((milestone, index) => {
+              const isLeft = index % 2 === 0;
+              
+              return (
+                <motion.div
+                  key={index}
+                  className={`relative flex items-center ${isLeft ? "justify-start" : "justify-end"}`}
+                  initial={{ opacity: 0, x: isLeft ? -100 : 100 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: index * 0.2 }}
+                >
+                  {/* Timeline Node */}
+                  <motion.div
+                    className="absolute left-1/2 transform -translate-x-1/2 z-20"
+                    whileHover={{ scale: 1.5 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <div className={`w-8 h-8 rounded-full bg-gradient-to-r ${getTypeColor(milestone.type)} shadow-lg relative`}>
+                      <motion.div
+                        className={`absolute inset-0 rounded-full bg-gradient-to-r ${getTypeColor(milestone.type)} opacity-30 blur-lg`}
+                        animate={{
+                          scale: [1, 1.5, 1],
+                          opacity: [0.3, 0.6, 0.3],
+                        }}
+                        transition={{
+                          duration: 2,
+                          repeat: Infinity,
+                          delay: index * 0.5,
+                        }}
+                      />
+                      <div className="absolute inset-2 bg-slate-900 rounded-full flex items-center justify-center text-xs">
+                        {getTypeIcon(milestone.type)}
+                      </div>
+                    </div>
+                  </motion.div>
+
+                  {/* Content Card */}
+                  <motion.div
+                    className={`w-full max-w-md ${isLeft ? "mr-auto pr-16" : "ml-auto pl-16"}`}
+                    whileHover={{ 
+                      scale: 1.05,
+                      rotateY: isLeft ? 5 : -5,
+                    }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <div className="relative group">
+                      {/* Glowing Border */}
+                      <div className={`absolute inset-0 bg-gradient-to-r ${getTypeColor(milestone.type)} rounded-2xl opacity-30 blur-lg group-hover:opacity-60 transition-opacity duration-300`} />
+                      
+                      {/* Card Content */}
+                      <div className="relative bg-slate-800/40 backdrop-blur-xl border border-white/10 rounded-2xl p-6 shadow-2xl">
+                        {/* Year Badge */}
+                        <motion.div
+                          className={`inline-block px-4 py-2 bg-gradient-to-r ${getTypeColor(milestone.type)} rounded-full text-white text-sm font-bold mb-4 shadow-lg`}
+                          whileHover={{ scale: 1.1 }}
+                        >
+                          {milestone.year}
+                        </motion.div>
+
+                        {/* Title */}
+                        <h3 className="text-xl font-bold text-white mb-3 leading-tight">
+                          {milestone.title}
+                        </h3>
+
+                        {/* Description */}
+                        <p className="text-gray-300 leading-relaxed mb-4">
+                          {milestone.description}
+                        </p>
+
+                        {/* Status Indicator */}
+                        <div className="flex items-center gap-2">
+                          <motion.div
+                            className={`w-3 h-3 rounded-full ${
+                              milestone.status === "active" 
+                                ? "bg-green-400 shadow-lg shadow-green-400/50" 
+                                : "bg-gray-400"
+                            }`}
+                            animate={milestone.status === "active" ? {
+                              opacity: [1, 0.3, 1],
+                            } : {}}
+                            transition={{
+                              duration: 2,
+                              repeat: Infinity,
+                            }}
+                          />
+                          <span className="text-sm text-gray-400 capitalize">
+                            {milestone.status}
+                          </span>
+                        </div>
+
+                        {/* Holographic Effect */}
+                        <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent rounded-2xl pointer-events-none" />
+                      </div>
+                    </div>
+                  </motion.div>
+                </motion.div>
+              );
+            })}
+          </div>
         </div>
-      </div>
-      
-      <div className="flex justify-center flex-col items-center gap-6 mt-16 px-4 sm:px-6 lg:px-8">
-        <p className="text-lg italic text-gray-700 leading-relaxed text-center max-w-2xl">
-          Have a story to add? Let's collaborate and create the next milestone together.
-        </p>
-        <Button
-          text="Let's create something together"
-          variant="secondary"
-          link="/contact" 
-        />
+
+        {/* Call to Action */}
+        <motion.div 
+          className="flex flex-col items-center gap-8 mt-20 text-center"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <div className="relative">
+            <motion.p 
+              className="text-xl text-gray-300 leading-relaxed max-w-2xl relative z-10"
+              animate={{
+                textShadow: [
+                  "0 0 10px rgba(59, 130, 246, 0.5)",
+                  "0 0 20px rgba(147, 51, 234, 0.5)",
+                  "0 0 10px rgba(59, 130, 246, 0.5)",
+                ]
+              }}
+              transition={{ duration: 3, repeat: Infinity }}
+            >
+              Ready to add the next chapter to this neural pathway?
+              <br />
+              Let's architect the future together.
+            </motion.p>
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 blur-2xl -z-10" />
+          </div>
+          
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <Button
+              text="Initialize Connection"
+              variant="secondary"
+              link="/contact" 
+            />
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );
