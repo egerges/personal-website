@@ -186,7 +186,6 @@ export default async function BlogPostPage({
                 </div>
               </div>
             )}
-          </p>
 
         </header>
 
