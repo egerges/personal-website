@@ -126,7 +126,7 @@ const milestones: Milestone[] = [
   },
 ];
 
-const SnapshotTimeline: React.FC = () => {
+const SnapshotSection: React.FC = () => {
   return (
     <section className="relative w-full overflow-hidden">
       {/* Header Section */}
@@ -293,4 +293,4 @@ const SnapshotTimeline: React.FC = () => {
   );
 };
 
-export default SnapshotTimeline;
+export default SnapshotSection;
