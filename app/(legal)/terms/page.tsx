@@ -89,9 +89,9 @@ const TermsAndConditions: React.FC = () => {
               transition={{ delay: 0.5 }}
               className="bg-white/5 rounded-2xl p-6 border border-blue-500/20"
             >
-              <h2 className="text-2xl font-bold text-blue-400 mb-6 flex items-center gap-3">
-                <span className="w-8 h-8 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full flex items-center justify-center text-white font-mono text-sm">2</span>
-                Intellectual Property
+              <h2 className="text-2xl font-bold text-cyan-400 mb-4 flex items-center gap-3">
+                <span className="w-8 h-8 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full flex items-center justify-center text-white font-mono text-sm">5</span>
+                Limitation of Liability
               </h2>
         <h3 className="text-xl font-semibold mb-3 text-cyan-300">2.1 Ownership</h3>
         <p>All content on this Website, including but not limited to text, images, graphics, and code, is the intellectual property of Elio Gerges unless otherwise stated.</p>
