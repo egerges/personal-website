@@ -3,9 +3,9 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-import { InfiniteMovingSkills } from "@components/InfiniteMovingSkills";
 import { TextGeneratedEffect } from "@components/TextGeneratedEffect";
 import Button from "@components/Button";
+import { SkillsCard } from "@components/SkillsCard";
 
 export const SkillsSection: React.FC = () => {
   const skills = [
@@ -125,14 +125,23 @@ export const SkillsSection: React.FC = () => {
           </motion.p>
         </motion.div>
 
-        {/* Infinite Skills */}
+        {/* Skills Grid */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="relative"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
         >
-          <InfiniteMovingSkills skills={skills} direction="right" speed="fast" />
+          {skills.map((skill, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+            >
+              <SkillsCard title={skill.title} images={skill.images} />
+            </motion.div>
+          ))}
         </motion.div>
 
         {/* Buttons */}
