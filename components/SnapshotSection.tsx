@@ -141,45 +141,70 @@ const SnapshotTimeline: React.FC = () => {
 
       {/* Timeline Section */}
       <div className="relative max-w-5xl mx-auto flex flex-col px-6">
-        {/* Left-Aligned Vertical Line */}
-        <div className="absolute left-[60px] h-full w-1 bg-gradient-to-b from-blue-500 via-pink-500 to-transparent"></div>
+        {/* Futuristic Vertical Line */}
+        <div className="absolute left-[60px] h-full w-0.5 bg-gradient-to-b from-blue-500 via-purple-500 via-pink-500 to-transparent">
+          <div className="absolute inset-0 w-1 bg-gradient-to-b from-blue-400/50 via-purple-400/50 via-pink-400/50 to-transparent blur-sm"></div>
+        </div>
 
         {milestones.map((milestone, index) => (
           <motion.div
             key={index}
-            className="relative flex items-center gap-8 mb-12"
+            className="relative flex items-center gap-8 mb-16"
             initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: index * 0.2 }}
           >
             {/* Icon */}
-            <div className="flex-shrink-0">
-              <div className="flex items-center justify-center bg-gray-800 p-4 rounded-full shadow-lg">
+            <div className="flex-shrink-0 relative">
+              {/* Pulsing Ring */}
+              <motion.div
+                className="absolute inset-0 w-20 h-20 rounded-full border-2 border-blue-400/30"
+                animate={{
+                  scale: [1, 1.2, 1],
+                  opacity: [0.3, 0.7, 0.3],
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  delay: index * 0.2,
+                }}
+                aria-hidden="true"
+              />
+              <div className="relative flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 p-4 rounded-full shadow-2xl border border-white/10 backdrop-blur-sm">
+                {/* Glow effect */}
+                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500/20 to-pink-500/20 blur-lg"></div>
                 {milestone.icon}
               </div>
             </div>
 
             {/* Milestone Content */}
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-              <span className="text-gray-800 text-sm text-left h-[100%] sm:max-w-[150px]">
+            <motion.div 
+              className="flex flex-col sm:flex-row items-start sm:items-center gap-6 bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 shadow-xl"
+              whileHover={{
+                scale: 1.02,
+                backgroundColor: "rgba(255, 255, 255, 0.08)",
+                transition: { duration: 0.3 }
+              }}
+            >
+              <div className="text-gray-800 text-sm text-left h-[100%] sm:max-w-[150px] bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent font-semibold">
                 {milestone.year}
-                <h3 className="text-gray-900 text-lg font-semibold">{milestone.title}</h3>
-              </span>
+                <h3 className="text-gray-900 text-lg font-bold mt-2 bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">{milestone.title}</h3>
+              </div>
               <div>
-                <p className="text-gray-700 text-sm text-start">{milestone.description}</p>
+                <p className="text-gray-700 text-base text-start font-medium">{milestone.description}</p>
                 {milestone.achievements.length > 0 && (
-                  <ul className="text-gray-500 text-sm mt-2">
+                  <ul className="text-gray-600 text-sm mt-3 space-y-1">
                     {milestone.achievements.map((achievement, index) => (
-                      <li key={index} className="flex items-center gap-1">
-                        <span className="text-gray-400">•</span>
+                      <li key={index} className="flex items-center gap-2">
+                        <span className="w-1.5 h-1.5 bg-gradient-to-r from-blue-500 to-pink-500 rounded-full"></span>
                         <span>{achievement}</span>
                       </li>
                     ))}
                   </ul>
                 )}
               </div>
-            </div>
+            </motion.div>
           </motion.div>
         ))}
       </div>

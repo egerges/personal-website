@@ -94,33 +94,56 @@ export const SkillsSection: React.FC = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="max-w-5xl mx-auto py-12"
+          className="max-w-5xl mx-auto py-16 text-center"
         >
           <h1
             id="skills-section-title"
-            className="text-2xl sm:text-4xl lg:text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-[var(--blue-primary)] to-[var(--pink-primary)]"
+            className="text-3xl sm:text-4xl lg:text-6xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-[var(--blue-primary)] via-purple-500 to-[var(--pink-primary)] drop-shadow-2xl"
           >
             <TextGeneratedEffect words="The Tools of My Trade." />
           </h1>
-          <p className="mt-4 text-base sm:text-lg lg:text-xl text-[var(--color-gray-darker)]">
+          <motion.p 
+            className="mt-6 text-base sm:text-lg lg:text-xl text-[var(--color-gray-darker)] max-w-3xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+          >
             Behind every great project is a well-equipped toolbox. Here’s a look at the skills
             and technologies I’ve honed to turn ideas into functional, impactful solutions.
-          </p>
+          </motion.p>
         </motion.div>
 
         {/* Infinite Skills */}
-        <InfiniteMovingSkills skills={skills} direction="right" speed="fast" />
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          className="relative"
+        >
+          {/* Background glow */}
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-purple-500/5 to-pink-500/5 rounded-3xl blur-xl"></div>
+          <InfiniteMovingSkills skills={skills} direction="right" speed="fast" />
+        </motion.div>
 
         {/* Buttons */}
-        <div className="flex justify-center flex-col items-center gap-4 mt-6">
-          <p className="mt-2 italic text-[var(--color-gray-darker)] text-center">
+        <motion.div 
+          className="flex justify-center flex-col items-center gap-6 mt-12"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
+        >
+          <p className="mt-4 italic text-[var(--color-gray-darker)] text-center text-lg max-w-2xl">
             Curious about how these skills translate into results?
             <br />
             Let’s collaborate and build something incredible.
           </p>
-          <Button text="Let's Collaborate" variant="secondary"
-            link="/contact" />
-        </div>
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <Button text="Let's Collaborate" variant="secondary" link="/contact" />
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

@@ -54,75 +54,115 @@ export const FeatureSection: React.FC = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="max-w-5xl mx-auto py-12 px-6"
+          className="max-w-5xl mx-auto py-16 px-6 text-center"
       >
-        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-[var(--blue-primary)] to-[var(--pink-primary)]">
+        <h1 className="text-3xl sm:text-4xl lg:text-6xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-[var(--blue-primary)] via-purple-500 to-[var(--pink-primary)] drop-shadow-2xl">
           <TextGeneratedEffect words="Crafting Impactful Solutions."/>
         </h1>
-        <p className="mt-4 text-base sm:text-lg lg:text-xl text-[var(--color-gray-darker)]">
+        <motion.p 
+          className="mt-6 text-base sm:text-lg lg:text-xl text-[var(--color-gray-darker)] max-w-3xl mx-auto"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+        >
             Every project is a story, and every story leaves an impact. Here are the solutions
             I’ve crafted—each one blending creativity, technical expertise, and a drive to deliver
             meaningful results.
-        </p>
+        </motion.p>
       </motion.div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <motion.div 
+          className="grid grid-cols-1 lg:grid-cols-3 gap-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+        >
           {projects.map((project, index) => {
             switch (project.type) {
               case "large":
                 return (
-                  <WobbleCard key={index} containerClassName="col-span-1 lg:col-span-2">
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: index * 0.2 }}
+                  >
+                    <WobbleCard containerClassName="col-span-1 lg:col-span-2 hover:shadow-2xl transition-all duration-300">
                     <LargeWobbleCard
                       title={project.title}
                       content={project.content}
                       image={project.image}
                       cta={project.cta}
                     />
-                  </WobbleCard>
+                    </WobbleCard>
+                  </motion.div>
                 );
               case "small":
                 return (
-                  <WobbleCard key={index}>
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: index * 0.2 }}
+                  >
+                    <WobbleCard containerClassName="hover:shadow-2xl transition-all duration-300">
                     <SmallWobbleCard
                       title={project.title}
                       content={project.content}
                       cta={project.cta}
                     />
-                  </WobbleCard>
+                    </WobbleCard>
+                  </motion.div>
                 );
               case "largeWithNoise":
                 return (
-                  <WobbleCard
+                  <motion.div
                     key={index}
-                    containerClassName="col-span-1 lg:col-span-3 bg-gradient-to-b from-indigo-900 to-purple-800"
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: index * 0.2 }}
                   >
+                    <WobbleCard
+                      containerClassName="col-span-1 lg:col-span-3 bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 hover:shadow-2xl transition-all duration-300"
+                    >
                     <LargeWobbleCardWithNoise
                       title={project.title}
                       content={project.content}
                       image={project.image}
                       cta={project.cta}
                     />
-                  </WobbleCard>
+                    </WobbleCard>
+                  </motion.div>
                 );
               default:
                 return null;
             }
           })}
-        </div>
+        </motion.div>
         
-        <div className="flex justify-center flex-col items-center gap-4 mt-6">
-          <p className="mt-2 italic text-[var(--color-gray-darker)] text-center">
+        <motion.div 
+          className="flex justify-center flex-col items-center gap-6 mt-12"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
+        >
+          <p className="mt-4 italic text-[var(--color-gray-darker)] text-center text-lg max-w-2xl">
             Want to see how these solutions came to life?
             <br />
             Dive into the details and discover the stories behind the code.
           </p>
-          <Button
-            text="Start a conversation"
-            variant="secondary"
-            link="/contact"
-          />
-        </div>
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <Button
+              text="Start a conversation"
+              variant="secondary"
+              link="/contact"
+            />
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );
