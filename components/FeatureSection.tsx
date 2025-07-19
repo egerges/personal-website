@@ -85,7 +85,7 @@ export const FeatureSection: React.FC = () => {
 
         {/* Projects Grid */}
         <motion.div 
-          className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10"
+          className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-8"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.5 }}
@@ -100,7 +100,7 @@ export const FeatureSection: React.FC = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: index * 0.2 }}
                   >
-                    <WobbleCard containerClassName="col-span-1 lg:col-span-2 bg-white/70 backdrop-blur-sm border border-white/50 hover:shadow-2xl hover:bg-white/80 transition-all duration-500">
+                    <WobbleCard containerClassName="col-span-1 lg:col-span-2 xl:col-span-2 bg-white/70 backdrop-blur-sm border border-white/50 hover:shadow-2xl hover:bg-white/80 transition-all duration-500 min-h-[300px]">
                     <LargeWobbleCard
                       title={project.title}
                       content={project.content}
@@ -118,7 +118,7 @@ export const FeatureSection: React.FC = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: index * 0.2 }}
                   >
-                    <WobbleCard containerClassName="bg-white/70 backdrop-blur-sm border border-white/50 hover:shadow-2xl hover:bg-white/80 transition-all duration-500">
+                    <WobbleCard containerClassName="col-span-1 bg-white/70 backdrop-blur-sm border border-white/50 hover:shadow-2xl hover:bg-white/80 transition-all duration-500 min-h-[300px]">
                     <SmallWobbleCard
                       title={project.title}
                       content={project.content}
@@ -136,7 +136,7 @@ export const FeatureSection: React.FC = () => {
                     transition={{ duration: 0.6, delay: index * 0.2 }}
                   >
                     <WobbleCard
-                      containerClassName="col-span-1 lg:col-span-3 bg-gradient-to-br from-slate-800 via-blue-900 to-purple-900 hover:shadow-2xl hover:from-slate-700 hover:via-blue-800 hover:to-purple-800 transition-all duration-500"
+                      containerClassName="col-span-1 lg:col-span-2 xl:col-span-3 bg-gradient-to-br from-slate-800 via-blue-900 to-purple-900 hover:shadow-2xl hover:from-slate-700 hover:via-blue-800 hover:to-purple-800 transition-all duration-500 min-h-[300px]"
                     >
                     <LargeWobbleCardWithNoise
                       title={project.title}
