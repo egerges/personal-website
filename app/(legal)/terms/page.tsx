@@ -129,7 +129,7 @@ const TermsAndConditions: React.FC = () => {
               <span className="w-8 h-8 bg-gradient-to-r from-purple-400 to-pink-500 rounded-full flex items-center justify-center text-white font-mono text-sm" aria-hidden="true">4</span>
               Disclaimer of Warranties
             </h2>
-            <h3 className="text-xl font-semibold mt-6 mb-3 text-pink-300">4.1 "As-Is" Basis</h3>
+            <h3 className="text-xl font-semibold mt-6 mb-3 text-pink-300">4.1 &quot;As-Is&quot; Basis</h3>
             <p>This Website is provided on an &quot;as-is&quot; and &quot;as-available&quot; basis. Elio Gerges makes no representations or warranties of any kind regarding the Website or its content.</p>
 
             <h3 className="text-xl font-semibold mt-6 mb-3 text-pink-300">4.2 No Guarantee</h3>
